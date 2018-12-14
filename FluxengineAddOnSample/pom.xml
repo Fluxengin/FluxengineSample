@@ -14,50 +14,48 @@
 
 
 	<build>
-
-
-
 		<plugins>
-			            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.5</version>
-                <configuration>
-                    <classesDirectory>target/classes/</classesDirectory>
-                    <archive>
-                        <manifest>
-                            <mainClass>jp.co.fluxengine.stateengine.dslreader.Main</mainClass>
-                            <useUniqueVersions>false</useUniqueVersions>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                        </manifest>
-                        <manifestEntries>
-                            <Class-Path>.</Class-Path>
-                        </manifestEntries>
-                    </archive>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <type>jar</type>
-                            <includeTypes>jar</includeTypes>
-                            <useUniqueVersions>false</useUniqueVersions>
-                            <outputDirectory>
-                                ${project.build.directory}/lib
-                            </outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+				<classesDirectory>target/classes/</classesDirectory>
+				<archive>
+					<manifest>
+						<mainClass>jp.co.fluxengine.stateengine.dslreader.Main</mainClass>
+						<useUniqueVersions>false</useUniqueVersions>
+						<addClasspath>true</addClasspath>
+						<classpathPrefix>lib/</classpathPrefix>
+					</manifest>
+					<manifestEntries>
+						<Class-Path>.</Class-Path>
+					</manifestEntries>
+				</archive>
+			</configuration>
+		</plugin>
+
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-dependency-plugin</artifactId>
+			<executions>
+				<execution>
+					<id>copy-dependencies</id>
+					<phase>package</phase>
+					<goals>
+						<goal>copy-dependencies</goal>
+					</goals>
+					<configuration>
+					<type>jar</type>
+					<includeTypes>jar</includeTypes>
+					<useUniqueVersions>false</useUniqueVersions>
+					<outputDirectory>
+						${project.build.directory}/lib
+					</outputDirectory>
+					</configuration>
+				</execution>
+			</executions>
+		</plugin>
 
 		<!--
 
@@ -81,9 +79,9 @@
 			<groupId>jp.co.fluxengine</groupId>
 			<artifactId>fluxengine-core</artifactId>
 			<version>1.0.0</version>
-<!-- 			<scope>system</scope>
+			<scope>system</scope>
 			<systemPath>${basedir}/lib/fluxengine-core-1.0.0.jar</systemPath>
- -->		</dependency>
+		</dependency>
 
 		<dependency>
 			<groupId>com.google.guava</groupId>
