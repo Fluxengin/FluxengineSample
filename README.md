@@ -1,4 +1,4 @@
-# FluxengineAddOnSample
+# FluxengineSample
 エンジンであるFluxengineを用いて、モデル駆動開発を実施することができます。
 DSLやプラグイン(java)のサンプルソースが格納されています。
 
@@ -40,13 +40,13 @@ DSLやプラグイン(java)のサンプルソースが格納されています�
   
   2. 引数タブのVM引数にSetUpで取得したresourcesフォルダのlog4j.xmlパスを設定する
   
-    例）-Dlog4j.configurationFile="file:\\\C:\Users\xxx\git\state-engine\stateengine\conf\log4j.xml"
+    例）-Dlog4j.configurationFile="file:\\\C:\Users\xxx\git\FluxengineSample\src\main\resources\log4j.xml"
     
   3. 環境タブの環境変数に以下を設定する
   
     <キー> / <値>
   
-    CONF / C:\Users\xxx\git\state-engine\stateengine\conf\
+    CONF / C:\Users\xxx\git\FluxengineSample\src\main\resources\
     
     TEST / true
     
