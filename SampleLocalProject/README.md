@@ -35,7 +35,7 @@ Fluxengine 1.0.0
 
     <キー> / <値>
 
-    CONF / C:\Users\xxx\git\FluxengineSample\conf\
+    CONF / C:\Users\xxx\git\SampleLocalProject\conf\
 
 
   4. DslTestExecutor.java に記載されているパスをチェックアウトした環境に合わせる
