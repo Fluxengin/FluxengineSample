@@ -1,0 +1,128 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>FluxengineSample</groupId>
+	<artifactId>SampleLocalProject</artifactId>
+	<version>1.0.0</version>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<log4j2.version>2.6.2</log4j2.version>
+
+		<!-- Fluxengineバージョン -->
+		<fluxengine.version>1.0.1</fluxengine.version>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<type>jar</type>
+							<includeTypes>jar</includeTypes>
+							<useUniqueVersions>false</useUniqueVersions>
+							<outputDirectory>
+								${project.build.directory}/lib
+							</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>23.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.yaml</groupId>
+			<artifactId>snakeyaml</artifactId>
+			<version>1.18</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mvel</groupId>
+			<artifactId>mvel2</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.12.1.GA</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.8.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+			<version>2.8.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j2.version}</version>
+		</dependency>
+
+		<!-- Fluxengine依存設定 -->
+		<!-- プロジェクト内のfluxengine-xxxx-x.x.x.jarを参照 -->
+		<!-- 担当者より関連のjarを入手すること -->
+		<dependency>
+			<groupId>jp.co.fluxengine</groupId>
+			<artifactId>fluxengine-core</artifactId>
+			<version>${fluxengine.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/fluxengine-core-1.0.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jp.co.fluxengine</groupId>
+			<artifactId>fluxengine-parser</artifactId>
+			<version>${fluxengine.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/fluxengine-parser-1.0.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jp.co.fluxengine</groupId>
+			<artifactId>fluxengine-local-test-runner</artifactId>
+			<version>${fluxengine.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/fluxengine-local-test-runner-1.0.1.jar</systemPath>
+		</dependency>
+	</dependencies>
+</project>
