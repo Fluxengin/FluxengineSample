@@ -16,7 +16,6 @@ import jp.co.fluxengine.stateengine.test.TestDsl;
  *    CONF ... propertiesファイルなどがまとめられているディレクトリを設定
  *             例) C:\\SampleLocalProject\\conf\\
  *                 ※Fluxengine設定ファイルの他に業務処理依存の設定ファイルもここに置くこと
- *    TEST ... trueを設定
  */
 public class DslTestExecutor {
 
