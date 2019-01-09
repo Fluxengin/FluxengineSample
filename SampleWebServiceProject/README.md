@@ -9,7 +9,7 @@ fluxengine-web-serviceとプラグインを用いて、Web Serviceをデプロ�
 Fluxengine 1.0.1
 
 # Usage
-サンプルＤＳＬの実行
+
   以下eclipseで動作させる前提での内容です
 
   1.Webサーバを起動する。
