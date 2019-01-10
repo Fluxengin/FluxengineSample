@@ -1,6 +1,5 @@
 package jp.co.fluxengine.example.plugin.effector;
 
-import java.lang.reflect.Field;
 import java.time.LocalDateTime;
 
 import org.apache.logging.log4j.LogManager;
@@ -27,16 +26,10 @@ public class MailNotificationEffector {
 	@Post
 	public void post() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("■■メール送信\n");
-
-		for (Field field : this.getClass().getDeclaredFields()) {
-			try {
-				field.setAccessible(true);
-				sb.append(field.getName() + " = " + field.get(this) + "\n");
-			} catch (IllegalAccessException e) {
-				sb.append(field.getName() + " = " + "access denied\n");
-			}
-		}
+		sb.append("■■アラート:");
+		sb.append(now);
+		sb.append(" ");
+		sb.append(message);
 		log.debug(sb.toString());
 	}
 }
