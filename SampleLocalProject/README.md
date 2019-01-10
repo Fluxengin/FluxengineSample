@@ -42,6 +42,7 @@ Fluxengine 1.0.0
 
   5. DslTestExecutor.java を実行する
 
+  6./SampleLocalProject/out/test-result.json の中に、各ケースが"結果":"true"になることを確認する
 # Authors
 Fluxengine株式会社
 
