@@ -29,7 +29,7 @@ Fluxengine 1.0.0
 
   2. 引数タブのVM引数にSetUpで取得したresourcesフォルダのlog4j.xmlパスを設定する
 
-    例）-Dlog4j.configurationFile="file:\\\C:\Users\xxx\git\SampleLocalProject\conf\log4j.xml"
+    例）-Dlog4j.configurationFile="file:\\\C:\Users\xxx\git\SampleLocalProject\conf\log4j2.xml"
 
   3. 環境タブの環境変数に以下を設定する
 

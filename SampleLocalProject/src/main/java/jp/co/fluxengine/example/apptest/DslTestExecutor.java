@@ -10,7 +10,7 @@ import jp.co.fluxengine.stateengine.test.TestDsl;
  *    variantやeffectorなどのプラグインを格納するパッケージ名を記載
  *
  *  VM引数  ※当javaファイル実行時に、以下のVM引数を設定
- *    -Dlog4j.configurationFile=<log4j.xmlへのパスを設定>
+ *    -Dlog4j.configurationFile=<log4j2.xmlへのパスを設定>
  *
  *  環境変数  ※当javaファイル実行時に、以下の環境変数
  *    CONF ... propertiesファイルなどがまとめられているディレクトリを設定
@@ -24,7 +24,7 @@ public class DslTestExecutor {
 		/*
 		 * プロジェクトのベースディレクトリを設定
 		 */
-		String baseDir = "C:\\SampleLocalProject\\";
+		String baseDir = "C:\\01_private_workspace\\git\\FluxengineSample\\SampleLocalProject\\";
 
 		/*
 		 * ■プログラム引数（起動引数に設定しても構いません）
