@@ -14,7 +14,7 @@ Fluxengine 1.0.1
 
   1.必要なjarファイルを　WEB-INF/libの下に置いてください。
 
-  2.必要設定ファイル dslDataStore.properties dslLoader.properties persisterDataStore.properties log4j2.xmlを　resourcesに置いてください
+  2.必要設定ファイル dslDataStore.properties dslLoader.properties persisterDataStore.properties log4j2.xmlを修正して、　resourcesに置いてください
 
   3.SampleWebServiceProjectをWebサーバにdeployして、Webサーバを起動する。
 
