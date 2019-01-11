@@ -19,39 +19,46 @@ Fluxengine 1.0.1
 サンプルＤＳＬの実行
   以下eclipseで動作させる前提での内容です
 
-  1. /SampleDataflowProject/src/main/java/jp/co/fluxengine/example/dataflow/StarterPipeline.java の実行構成を開く (メニュー＞実行＞実行構成）
+  1. Cloud SDKとCloud Dataflow のインストール
+   https://cloud.google.com/dataflow/docs/quickstarts/quickstart-java-eclipseを参照すること
+     Cloud SDKインストール    ... 上記のURLの4番
+     Cloud Dataflowプラグイン ... 上記のURLの7番
 
-  2. 引数タブのVM引数にSetUpで取得したresourcesフォルダのlog4j2.xmlパスを設定する
+  2. Dataflow Pipelineプロジェクトとして本プロジェクトの実行構成を行う
+     メイン
+        メイン・クラスに「jp.co.fluxengine.example.dataflow.StarterPipeline」を設定
 
-          例）-Dlog4j.configurationFile="file:\\\C:\Users\xxx\git\SampleLocalProject\conf\log4j2.xml"
+     Pipeline Arguments
+        アカウント、Project IDなどのoptionsを設定
+        Pipline Optionsには「jp.co.fluxengine.gcp.dataflow.EventOptions」を設定
+          fromTopicに受信先のpub/subイベントを設定する
 
-  3. 環境タブの環境変数に以下を設定する
+  3.【任意】プラグインファイル(jar)の配置と設定変更
+     本サンプルではSampleLocalProjectをパイプラインとして登録している。
+     別のプラグインで動作確認を行う場合は下記ファイルの差し替えと伴にpom.xmlを修正すること
 
-    <キー> / <値>
+       <対象ファイル>
+         lib/fluxengine-local-sample-1.0.1.jar
 
-    CONF / C:\Users\xxx\git\SampleLocalProject\conf\
-    GOOGLE_APPLICATION_CREDENTIALS \ サービスアカウントキーファイルへのパス
+  4. resources配下の設定ファイルを修正
+     dslDataStore.properties ... DSLモジュール登録先のDatastore情報を設定する
+       namespace=<GCPの名前空間を設定>
+       kind=
+       projectId=<GCPのプロジェクトIDを設定>
 
-  4. 実行オプション
+     persisterDataStore.properties ... 永続化先のDatastore情報を設定する
+       namespace=<GCPの名前空間を設定>
+       kind=
+       projectId=<GCPのプロジェクトIDを設定>
 
-    --project=<YOUR_PROJECT_ID>
-    --stagingLocation=<STAGING_LOCATION_IN_CLOUD_STORAGE>    例) gs://<バケット名>/
-    --runner=DataflowRunner
-    --fromTopic=受信先のトピック                             例) projects/<プロジェクト名>/topics/<トピック名
+     illegalEventDataStore.properties ... 処理失敗イベント情報の回避先を設定する
+       namespace=<GCPの名前空間を設定>
+       kind=
+       projectId=<GCPのプロジェクトIDを設定>
 
-  5. dslDataStore.properties ... DSLモジュール登録先のDatastore情報を設定する
-     namespace=<GCPの名前空間を設定>
-     kind=
-     PERSISTERprojectId=<GCPのプロジェクトIDを設定>
+  5. StarterPipeline.java を実行する
 
-  6. persisterDataStore.properties ... 永続化先のDatastore情報を設定する
-     namespace=<GCPの名前空間を設定>
-     kind=
-     PERSISTERprojectId=<GCPのプロジェクトIDを設定>
-
-  7. DslTestExecutor.java を実行する
-
-  8. 該当プロジェクトにパイプラインが登録されることを確認
+  6. 該当プロジェクトにパイプラインが登録されることを確認
 
 # Authors
 Fluxengine株式会社
