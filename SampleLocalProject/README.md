@@ -7,7 +7,7 @@ DSLやプラグイン(java)のサンプルソースが格納されています�
 ビルドツール：maven (のちにgradle対応)
 
 # Version
-Fluxengine 1.0.0
+Fluxengine 1.0.1
 
 # SetUp
 プロジェクトを実行するためにエンジンのjarが必要となります。
@@ -27,7 +27,7 @@ Fluxengine 1.0.0
 
   1. /SampleLocalProject/src/main/java/jp/co/fluxengine/example/apptest/DslTestExecutor.java の実行構成を開く (メニュー＞実行＞実行構成）
 
-  2. 引数タブのVM引数にSetUpで取得したresourcesフォルダのlog4j.xmlパスを設定する
+  2. 引数タブのVM引数にSetUpで取得したresourcesフォルダのlog4j2.xmlパスを設定する
 
     例）-Dlog4j.configurationFile="file:\\\C:\Users\xxx\git\SampleLocalProject\conf\log4j2.xml"
 
@@ -42,7 +42,8 @@ Fluxengine 1.0.0
 
   5. DslTestExecutor.java を実行する
 
-  6./SampleLocalProject/out/test-result.json の中に、各ケースが"結果":"true"になることを確認する
+  6. /SampleLocalProject/out/test-result.json の中に、各ケースが"結果":"true"になることを確認する
+
 # Authors
 Fluxengine株式会社
 
