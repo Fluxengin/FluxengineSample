@@ -24,11 +24,6 @@ Fluxengine 1.0.1
        namespace=<GCPの名前空間を設定>
        kind=
        projectId=<GCPのプロジェクトIDを設定>
-
-     illegalEventDataStore.properties ... 処理失敗イベント情報の回避先を設定する
-       namespace=<GCPの名前空間を設定>
-       kind=
-       projectId=<GCPのプロジェクトIDを設定>
   ```
   2.SampleWebServiceProjectをGAEにdeployする
 

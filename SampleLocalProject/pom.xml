@@ -45,14 +45,6 @@
 
 	<dependencies>
 
-
-
-
-		<!-- Fluxengine依存設定 -->
-		<!-- プロジェクト内のfluxengine-xxxx-x.x.x.jarを参照 -->
-		<!-- 担当者より関連のjarを入手すること -->
-
-
 		<dependency>
 			<groupId>jp.co.fluxengine</groupId>
 			<artifactId>fluxengine-local-test-runner</artifactId>
