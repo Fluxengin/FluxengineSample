@@ -3,7 +3,7 @@ fluxengine-web-serviceのデプロイサンプルです。
 
 # Dependency
 使用言語：java
-ビルドツール：maven (のちにgradle対応)
+ビルドツール：gradle
 
 # Version
 Fluxengine 1.0.1
