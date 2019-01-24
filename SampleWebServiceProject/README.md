@@ -3,10 +3,10 @@ fluxengine-web-serviceのデプロイサンプルです。
 
 # Dependency
 使用言語：java
-ビルドツール：gradle
+ビルドツール：gradle & maven
 
 # Version
-Fluxengine 1.0.1
+Fluxengine 1.0.2
 
 # Usage
 

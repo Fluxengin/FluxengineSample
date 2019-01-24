@@ -3,10 +3,10 @@ Fluxengineを利用するDataflowパイプラインの登録を実施するこ�
 
 # Dependency
 使用言語：java
-ビルドツール：gradle
+ビルドツール：gradle & maven
 
 # Version
-Fluxengine 1.0.1
+Fluxengine 1.0.2
 
 # SetUp
 プロジェクトを実行するために以下の設定が必要となります。

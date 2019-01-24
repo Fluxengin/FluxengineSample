@@ -4,7 +4,7 @@ DSLやプラグイン(java)のサンプルソースが格納されています�
 
 # Dependency
 使用言語：java
-ビルドツール：gradle
+ビルドツール：gradle & maven
 
 # Version
 Fluxengine 1.0.1
@@ -37,6 +37,12 @@ Fluxengine 1.0.1
   5. DslTestExecutor.java を実行する
 
   6. /SampleLocalProject/out/test-result.json の中に、各ケースが"結果":"true"になることを確認する
+
+     ※gradleでDSLのテストを実施の場合SampleLocalProjectディレクトリで次のコマンドを実施すること
+   ```
+     gradlew
+     gradlew run -Pargs="src\main\dsl\packet src\test\dsl\packet out test.log"
+   ```
 
 # Authors
 Fluxengine株式会社
