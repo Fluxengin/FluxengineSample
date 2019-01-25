@@ -43,7 +43,11 @@ Fluxengine 1.0.1
      gradlew
      gradlew run -Pargs="src\main\dsl\packet src\test\dsl\packet out test.log"
    ```
+     ※Windowsコマンドプロンプトの文字コードをUTF-8に変更する場合は次のコマンドを実施すること
+   ```
+     chcp 65001
 
+   ```
 # Authors
 Fluxengine株式会社
 
