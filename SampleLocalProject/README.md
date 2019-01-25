@@ -38,15 +38,13 @@ Fluxengine 1.0.1
 
   6. /SampleLocalProject/out/test-result.json の中に、各ケースが"結果":"true"になることを確認する
 
-     ※gradleでDSLのテストを実施の場合SampleLocalProjectディレクトリで次のコマンドを実施すること
+     gradleでDSLのテストを実施の場合SampleLocalProjectディレクトリで次のコマンドを実施すること
    ```
      gradlew
      gradlew run -Pargs="src\main\dsl\packet src\test\dsl\packet out test.log"
-   ```
-     ※Windowsコマンドプロンプトの文字コードをUTF-8に変更する場合は次のコマンドを実施すること
-   ```
-     chcp 65001
 
+     ※Windowsコマンドプロンプトの文字コードをUTF-8に変更する場合は次のコマンドを実施すること
+     chcp 65001
    ```
 # Authors
 Fluxengine株式会社
