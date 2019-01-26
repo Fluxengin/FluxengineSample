@@ -8,6 +8,14 @@ fluxengine-web-serviceのデプロイサンプルです。
 # Version
 Fluxengine 1.0.2
 
+# SetUp
+
+1. 当プロジェクトをチェックアウト
+2. プロジェクトディレクトリにて次のコマンドを実行する
+```
+gradlew
+```
+
 # Usage
 
   以下GAEで動作させる前提での内容です。

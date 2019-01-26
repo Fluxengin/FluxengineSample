@@ -7,15 +7,15 @@ DSLやプラグイン(java)のサンプルソースが格納されています�
 ビルドツール：gradle & maven
 
 # Version
-Fluxengine 1.0.1
+Fluxengine 1.0.2
 
 # SetUp
-プロジェクトを実行するためにエンジンのjarが必要となります。
 
 1. 当プロジェクトをチェックアウト
-2. エンジンのjar(fluxengine-xxx-.<version no>.jar)をダウンロードする
-3. 2で取得したjarをチェックアウトしたプロジェクトのlibフォルダに格納する
-4. . ビルドを実施（現時点ではmavenプロジェクトなので、maven installを実施してください）
+2. プロジェクトディレクトリにて次のコマンドを実行する
+```
+gradlew
+```
 
 # Usage
 サンプルＤＳＬの実行
