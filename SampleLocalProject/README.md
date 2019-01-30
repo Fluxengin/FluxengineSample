@@ -4,18 +4,18 @@ DSLやプラグイン(java)のサンプルソースが格納されています�
 
 # Dependency
 使用言語：java
-ビルドツール：maven (のちにgradle対応)
+ビルドツール：gradle & maven
 
 # Version
-Fluxengine 1.0.1
+Fluxengine 1.0.2
 
 # SetUp
-プロジェクトを実行するためにエンジンのjarが必要となります。
 
 1. 当プロジェクトをチェックアウト
-2. エンジンのjar(fluxengine-xxx-.<version no>.jar)をダウンロードする
-3. 2で取得したjarをチェックアウトしたプロジェクトのlibフォルダに格納する
-4. . ビルドを実施（現時点ではmavenプロジェクトなので、maven installを実施してください）
+2. プロジェクトディレクトリにて次のコマンドを実行する
+```
+gradlew
+```
 
 # Usage
 サンプルＤＳＬの実行
@@ -24,22 +24,28 @@ Fluxengine 1.0.1
   1. /SampleLocalProject/src/main/java/jp/co/fluxengine/example/apptest/DslTestExecutor.java の実行構成を開く (メニュー＞実行＞実行構成）
 
   2. 引数タブのVM引数にSetUpで取得したresourcesフォルダのlog4j2.xmlパスを設定する
-```
+   ```
     例）-Dlog4j.configurationFile="file:\\\C:\Users\xxx\git\SampleLocalProject\conf\log4j2.xml"
-```
+   ```
   3. 環境タブの環境変数に以下を設定する
-```
+   ```
     <キー> / <値>
-
     CONF / C:\Users\xxx\git\SampleLocalProject\conf\
-
-```
+   ```
   4. DslTestExecutor.java に記載されているパスをチェックアウトした環境に合わせる
 
   5. DslTestExecutor.java を実行する
 
   6. /SampleLocalProject/out/test-result.json の中に、各ケースが"結果":"true"になることを確認する
 
+     gradleでDSLのテストを実施の場合SampleLocalProjectディレクトリで次のコマンドを実施すること
+   ```
+     gradlew
+     gradlew run -Pargs="src\main\dsl\packet src\test\dsl\packet out test.log"
+
+     ※Windowsコマンドプロンプトの文字コードをUTF-8に変更する場合は次のコマンドを実施すること
+     chcp 65001
+   ```
 # Authors
 Fluxengine株式会社
 
