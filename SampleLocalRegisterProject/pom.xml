@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>jp.co.fluxengine</groupId>
+	<artifactId>fluxengine-sample-local-register</artifactId>
+	<version>1.0.2</version>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<fluxengine.version>1.0.2</fluxengine.version>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>jp.co.fluxengine</groupId>
+			<artifactId>fluxengine-dsl-register</artifactId>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/fluxengine-dsl-register-${fluxengine.version}.jar</systemPath>
+			<version>${fluxengine.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jp.co.fluxengine</groupId>
+			<artifactId>fluxengine-parser</artifactId>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/fluxengine-parser-${fluxengine.version}.jar</systemPath>
+			<version>${fluxengine.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>jp.co.fluxengine</groupId>
+			<artifactId>fluxengine-dataflow</artifactId>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/fluxengine-dataflow-${fluxengine.version}.jar</systemPath>
+			<version>${fluxengine.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jp.co.fluxengine</groupId>
+			<artifactId>fluxengine-local-sample</artifactId>
+			<version>${fluxengine.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/fluxengine-local-sample-${fluxengine.version}.jar</systemPath>
+		</dependency>
+	</dependencies>
+</project>
