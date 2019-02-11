@@ -6,7 +6,7 @@
 ビルドツール：gradle & maven
 
 # Version
-Fluxengine 1.0.2
+Fluxengine 1.0.3
 
 # SetUp
 
@@ -24,7 +24,7 @@ gradlew
 
   2. 引数タブのVM引数にSetUpで取得したresourcesフォルダのlog4j2.xmlパスを設定する
    ```
-    例）-Dlog4j.configurationFile="file:\\\C:\Users\xxx\git\SampleLocalProject\conf\log4j2.xml"
+    例）-Dlog4j.configurationFile="file:\\\C:\Users\xxx\git\SampleRemoteTestProject\conf\log4j2.xml"
    ```
   3. 環境タブの環境変数に以下を設定する
    ```

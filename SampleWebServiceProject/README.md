@@ -6,7 +6,7 @@ fluxengine-web-serviceのデプロイサンプルです。
 ビルドツール：gradle & maven
 
 # Version
-Fluxengine 1.0.2
+Fluxengine 1.0.3
 
 # SetUp
 
