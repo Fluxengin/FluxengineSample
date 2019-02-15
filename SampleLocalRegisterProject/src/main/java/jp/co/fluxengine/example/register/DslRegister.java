@@ -20,6 +20,7 @@ public class DslRegister {
 		 *  dslDataStore.properties
 		 *  language.conf
 		 *  log4j2.xml
+		 *  license.lic
 		 */
 
 		//②Dsl-rootを設定します。
