@@ -2,7 +2,6 @@ package jp.co.fluxengine.example.register;
 
 import java.io.File;
 
-import jp.co.fluxengine.stateengine.dsl.register.DatastoreDslRegister;
 import jp.co.fluxengine.stateengine.parser.DslParser;
 
 public class DslRegister {
@@ -31,7 +30,6 @@ public class DslRegister {
 		String pn = projectname.substring(projectname.lastIndexOf(File.separator) + 1, projectname.length());
 		DslParser dslParser = new DslParser(dslRootPath, dslRootPath + File.separator + pn + ".obj");
 		dslParser.parser();
-		DatastoreDslRegister datastoreDslRegister = new DatastoreDslRegister();
 
 		//③バージョンと適用開始を設定する。
 		String version = "1";
@@ -39,7 +37,6 @@ public class DslRegister {
 
 		jp.co.fluxengine.stateengine.dsl.DslRegister
 				.main(new String[] { dslRootPath + File.separator + pn + ".obj", version, startDate });
-		datastoreDslRegister.register(version, startDate, dslParser.getDslModel());
 
 	}
 }
