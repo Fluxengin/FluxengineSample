@@ -34,13 +34,12 @@ public class DslRegister {
 		DatastoreDslRegister datastoreDslRegister = new DatastoreDslRegister();
 
 		//③バージョンと適用開始を設定する。
-		String version ="1";
+		String version = "1";
 		String startDate = "20190101";
 
-
+		jp.co.fluxengine.stateengine.dsl.DslRegister
+				.main(new String[] { dslRootPath + File.separator + pn + ".obj", version, startDate });
 		datastoreDslRegister.register(version, startDate, dslParser.getDslModel());
-
-		System.out.println("dsl登録しました");
 
 	}
 }
