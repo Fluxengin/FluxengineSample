@@ -4,22 +4,29 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jp.co.fluxengine</groupId>
 	<artifactId>fluxengine-sample-local-register</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 
 	<properties>
 		<java.version>1.8</java.version>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
-		<fluxengine.version>1.0.3</fluxengine.version>
+		<fluxengine.version>1.0.4</fluxengine.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>jp.co.fluxengine</groupId>
+			<artifactId>fluxengine-core</artifactId>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/fluxengine-core-${fluxengine.version}.jar</systemPath>
+			<version>${fluxengine.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>jp.co.fluxengine</groupId>
-			<artifactId>fluxengine-dsl-register</artifactId>
+			<artifactId>fluxengine-persist-manager</artifactId>
 			<scope>system</scope>
-			<systemPath>${basedir}/lib/fluxengine-dsl-register-${fluxengine.version}.jar</systemPath>
+			<systemPath>${basedir}/lib/fluxengine-persist-manager-${fluxengine.version}.jar</systemPath>
 			<version>${fluxengine.version}</version>
 		</dependency>
 
@@ -31,12 +38,11 @@
 			<version>${fluxengine.version}</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>jp.co.fluxengine</groupId>
-			<artifactId>fluxengine-dataflow</artifactId>
+			<artifactId>fluxengine-dsl-register</artifactId>
 			<scope>system</scope>
-			<systemPath>${basedir}/lib/fluxengine-dataflow-${fluxengine.version}.jar</systemPath>
+			<systemPath>${basedir}/lib/fluxengine-dsl-register-${fluxengine.version}.jar</systemPath>
 			<version>${fluxengine.version}</version>
 		</dependency>
 

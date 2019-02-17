@@ -7,7 +7,7 @@ DSLやプラグイン(java)のサンプルソースが格納されています�
 ビルドツール：gradle & maven
 
 # Version
-Fluxengine 1.0.3
+Fluxengine 1.0.4
 
 # SetUp
 
