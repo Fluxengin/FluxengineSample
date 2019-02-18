@@ -16,17 +16,9 @@
 	<dependencies>
 		<dependency>
 			<groupId>jp.co.fluxengine</groupId>
-			<artifactId>fluxengine-core</artifactId>
+			<artifactId>fluxengine-dsl-register</artifactId>
 			<scope>system</scope>
-			<systemPath>${basedir}/lib/fluxengine-core-${fluxengine.version}.jar</systemPath>
-			<version>${fluxengine.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>jp.co.fluxengine</groupId>
-			<artifactId>fluxengine-persist-manager</artifactId>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/fluxengine-persist-manager-${fluxengine.version}.jar</systemPath>
+			<systemPath>${basedir}/lib/fluxengine-dsl-register-${fluxengine.version}.jar</systemPath>
 			<version>${fluxengine.version}</version>
 		</dependency>
 
@@ -40,9 +32,9 @@
 
 		<dependency>
 			<groupId>jp.co.fluxengine</groupId>
-			<artifactId>fluxengine-dsl-register</artifactId>
+			<artifactId>fluxengine-dataflow</artifactId>
 			<scope>system</scope>
-			<systemPath>${basedir}/lib/fluxengine-dsl-register-${fluxengine.version}.jar</systemPath>
+			<systemPath>${basedir}/lib/fluxengine-dataflow-${fluxengine.version}.jar</systemPath>
 			<version>${fluxengine.version}</version>
 		</dependency>
 

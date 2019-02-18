@@ -10,7 +10,7 @@ import jp.co.fluxengine.stateengine.dsl.DslRegister;
 import jp.co.fluxengine.stateengine.parser.DslParser;
 
 /**
- * ローカル開発環境にてテスト済みのFDSL及びプラグインをFDSLリポジトリに登録するサンプルです。
+ * ローカル開発環境にてFDSL及びプラグインをDataStoreのFDSLリポジトリに登録するサンプルです。
  *
  * ★事前準備
  *   設定ファイル準備
