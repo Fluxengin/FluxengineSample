@@ -33,9 +33,19 @@ gradlew
       メイン・クラスに「jp.co.fluxengine.example.dataflow.StarterPipeline」を設定
 
     Pipeline Arguments
-      アカウント、Project IDなどのoptionsを設定
-      Pipline Optionsには「jp.co.fluxengine.gcp.dataflow.EventOptions」を設定
-         fromTopicに受信先のpub/subイベントを設定する
+       アカウント、Project IDなどのoptionsを設定
+
+       <ストリーミングモード>
+         org.apache.beam.options.StreamingOptions
+           streamimgにfalseを設定
+         jp.co.fluxengine.gcp.dataflow.EventOptions
+           fromTopicに受信先のpub/subイベントを設定する
+
+       <バッチモード>
+         org.apache.beam.options.StreamingOptions
+           streamimgにfalseを設定
+         org.apache.beam.runners.dataflow.options.DataflowPiplineOptions
+           templateLocationにバッチテンプレートのステージング先を保存
   ```
   3.【任意】プラグインファイル(jar)の配置と設定変更
      本サンプルではSampleLocalProjectをパイプラインとして登録している。
