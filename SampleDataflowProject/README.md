@@ -52,7 +52,7 @@ gradlew
      別のプラグインで動作確認を行う場合は下記ファイルの差し替えと伴にpom.xmlを修正すること
   ```
     対象ファイル:
-      lib/fluxengine-local-sample-1.0.1.jar
+      lib/fluxengine-local-sample-{version}.jar
   ```
   4. resources配下の設定ファイルを修正
   ```
@@ -65,11 +65,19 @@ gradlew
       namespace=<GCPの名前空間を設定>
       kind=
       projectId=<GCPのプロジェクトIDを設定>
+      retryTimes=<リトライ回数>
 
     illegalEventDataStore.properties ... 処理失敗イベント情報の回避先を設定する
       namespace=<GCPの名前空間を設定>
       kind=
       projectId=<GCPのプロジェクトIDを設定>
+      retryTimes=<リトライ回数>
+
+    effectorDataStore.properties ... 処理失敗エフェクタ情報の回避先を設定する
+      namespace=<GCPの名前空間を設定>
+      kind=
+      projectId=<GCPのプロジェクトIDを設定>
+      retryTimes=<リトライ回数>
   ```
   5. StarterPipeline.java を実行する
 
