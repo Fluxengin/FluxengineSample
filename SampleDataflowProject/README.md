@@ -18,7 +18,7 @@ gradlew
 ```
 
 # Usage
-サンプルＤＳＬの実行
+サンプルの実行
   以下eclipseで動作させる前提での内容です
 
   1. Cloud SDKとCloud Dataflow のインストール
