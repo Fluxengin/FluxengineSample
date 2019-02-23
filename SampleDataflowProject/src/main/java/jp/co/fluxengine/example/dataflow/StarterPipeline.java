@@ -1,6 +1,6 @@
 package jp.co.fluxengine.example.dataflow;
 
-import jp.co.fluxengine.gcp.dataflow.StreamProcessor;
+import jp.co.fluxengine.gcp.dataflow.FluxengineDataflowProcessor;
 
 /**
  * Dataflowにパイプラインをデプロイするサンプルです。
@@ -65,6 +65,6 @@ import jp.co.fluxengine.gcp.dataflow.StreamProcessor;
  */
 public class StarterPipeline {
 	public static void main(String[] args) {
-		StreamProcessor.main(args);
+		FluxengineDataflowProcessor.main(args);
 	}
 }

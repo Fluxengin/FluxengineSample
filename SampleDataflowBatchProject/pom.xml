@@ -85,12 +85,6 @@
 		</dependency>
 		<!-- [END_EXCLUDE] -->
 
-		<dependency>
-			<groupId>com.google.api-client</groupId>
-			<artifactId>google-api-client-appengine</artifactId>
-			<version>1.28.0</version>
-		</dependency>
-
 	</dependencies>
 
 

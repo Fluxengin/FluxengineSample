@@ -16,10 +16,5 @@
 		<property name="java.util.logging.config.file"
 			value="WEB-INF/logging.properties" />
 	</system-properties>
-
-	<env-variables>
-		<env-var name="GOOGLE_APPLICATION_CREDENTIALS"
-			value="WEB-INF/fluxengine-test-c4662700d0b4.json" />
-	</env-variables>
 </appengine-web-app>
 <!-- [END config] -->
