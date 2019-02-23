@@ -13,9 +13,12 @@ import jp.co.fluxengine.stateengine.annotation.Variant;
 public class UserInfoVariant {
 
 	private static final Logger log = LogManager.getLogger(UserInfoVariant.class);
+    private int counter = 0;
 
 	@DslName("get")
 	public Map<String, Object> get(String id) {
+		counter++;
+
 		//TODO 永続化しているデータを取得したり、加工処理を記載
 		log.debug("UserInfoVariant:" + id);
 		//ダミ－データ

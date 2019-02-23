@@ -3,3 +3,4 @@ export struct ユーザー情報<端末ID>:
     ユーザーID: string
     パケット上限: number
     get(端末ID):
+        cache: today()
