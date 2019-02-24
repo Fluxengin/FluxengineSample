@@ -32,6 +32,10 @@ gradlew
        namespace=<GCPの名前空間を設定>
        kind=
        projectId=<GCPのプロジェクトIDを設定>
+       retryTimes=リトライ回数
+
+     variant_cache.properties ... マスタ参照バリアントのキャッシュ設定
+       maxRecords=キャッシュ上限レコード数（整数）
   ```
   2.SampleWebServiceProjectをGAEにdeployする
 

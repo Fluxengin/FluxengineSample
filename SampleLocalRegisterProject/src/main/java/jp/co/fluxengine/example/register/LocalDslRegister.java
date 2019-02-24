@@ -44,7 +44,7 @@ public class LocalDslRegister {
 	public static void main(String[] args) {
 
 		// 登録対象FDSLのパス
-		String dslRootPath = "C:\\01_private_workspace\\git\\FluxengineSample\\SampleLocalProject\\src\\main\\dsl\\packet";
+		String dslRootPath = "C:\\git\\FluxengineSample\\SampleLocalProject\\src\\main\\dsl\\packet";
 
 		// 登録バージョン
 		String version = "1";

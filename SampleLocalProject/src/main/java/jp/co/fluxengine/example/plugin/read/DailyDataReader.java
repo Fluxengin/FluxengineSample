@@ -30,7 +30,7 @@ public class DailyDataReader implements Fetch {
 		map.put("日時", LocalDateTime.now());
 		map.put("使用量", 500);
 
-		TimeUnit.MINUTES.sleep(1);
+		TimeUnit.SECONDS.sleep(1);
 
 		HashMap<String, Object> map1 = Maps.newHashMap();
 		map1.put("端末ID", "C01");
