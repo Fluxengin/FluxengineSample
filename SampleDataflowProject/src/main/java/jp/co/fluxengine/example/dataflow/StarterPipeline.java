@@ -7,29 +7,27 @@ import jp.co.fluxengine.gcp.dataflow.FluxengineDataflowProcessor;
  *
  * ★事前準備
  *
- *    Cloud SDKとCloud Dataflow のインストール
- *    https://cloud.google.com/dataflow/docs/quickstarts/quickstart-java-eclipseを参照すること
- *      Cloud SDKインストール    ... 上記のURLの4番
- *      Cloud Dataflowプラグイン ... 上記のURLの7番
- *
  *    Dataflow Pipelineプロジェクトとして本プロジェクトの実行構成を行う
  *      メイン
  *         メイン・クラスに「jp.co.fluxengine.example.dataflow.StarterPipeline」を設定
  *
- *      Pipeline Arguments
- *         アカウント、Project IDなどのoptionsを設定
- *
  *         <ストリーミングモード>
- *           org.apache.beam.options.StreamingOptions
- *             streamimgにfalseを設定
- *           jp.co.fluxengine.gcp.dataflow.EventOptions
- *             fromTopicに受信先のpub/subイベントを設定する
+ *           --runner=DataflowRunner
+ *           --project=<GCPプロジェクトID>
+ *           --stagingLocation=<ステージング先>
+ *           --fromTopic= <受信元Pub/Subトピックス>
+ *           --streaming=true
+ *           【デバッグログ出力設定（本番環境不要）】
+ *               --defaultWorkerLogLevel=DEBUG
  *
  *         <バッチモード>
- *           org.apache.beam.options.StreamingOptions
- *             streamimgにfalseを設定
- *           org.apache.beam.runners.dataflow.options.DataflowPiplineOptions
- *             templateLocationにバッチテンプレートのステージング先を保存
+ *           --runner=DataflowRunner
+ *           --project=<GCPプロジェクトID>
+ *           --stagingLocation=<ステージング先>
+ *           --templateLocation= <テンプレートテージング先>
+ *           --streaming=false
+ *           【デバッグログ出力設定（本番環境不要）】
+ *              --defaultWorkerLogLevel=DEBUG
  *
  *   【任意】プラグインファイル(jar)の配置と設定変更
  *      本サンプルではSampleLocalProjectをパイプラインとして登録している。
@@ -61,6 +59,9 @@ import jp.co.fluxengine.gcp.dataflow.FluxengineDataflowProcessor;
  *        kind=
  *        projectId=<GCPのプロジェクトIDを設定>
  *        retryTimes=<リトライ回数>
+ *
+ *      variant_cache.properties ... マスタ参照バリアントのキャッシュ設定
+ *        maxRecords=キャッシュ上限レコード数（整数）
  *
  */
 public class StarterPipeline {

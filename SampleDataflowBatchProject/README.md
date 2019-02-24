@@ -23,31 +23,26 @@ gradlew
 
   1.`/SampleDataflowBatchProject/src/main/webapp/WEB-INF`配下の設定ファイルを環境に合わせて修正
   ```
-     dslDataStore.properties ... DSLモジュール登録先のDatastore情報を設定する
-       namespace=<GCPの名前空間を設定>
-       kind=
-       projectId=<GCPのプロジェクトIDを設定>
+     cron.xml ... スケジューラを設定する
+       url=/fluxengine-dataflow-batch?event=<イベントのネームスペース#イベント名>
+       ※URLエンコードを行うこと
 
-     persisterDataStore.properties ... 永続化先のDatastore情報を設定する
-       namespace=<GCPの名前空間を設定>
-       kind=
-       projectId=<GCPのプロジェクトIDを設定>
+     job.properties ... イベントパラメータを設定する
+       projectId=<バッチタイプジョブの実行先プロジェクトID>
+       region=<バッチタイプジョブのりリージョン>
+       jobNamePrefix=<バッチタイプジョブ名称のプレフィックス（ジョブ名はプレフィックス+ yyyyMMdd-HHmmss-SSSで作成する）>
+       templateLocation=<バッチタイプジョブテンプレートのステージング先>
+       eventName=<投入先イベント名＋ネームスペース（複数の場合は半角カンマ区切り）>
+       {イベント}. property=<投入先イベントの属性名>
+       {イベント}. type=<イベント各属性のデータタイプ（{イベント}. property順）>
+       {イベント}.value=<イベント各属性に設定する値（{イベント}. property順）>
   ```
-  2.SampleWebServiceProjectをGAEにdeployする
+  2.SampleDataflowBatchProjectをGAEにdeployする
 
   3.GAEのURLにアクセスし、Helloページが表示できたらデプロイ成功
-  ```
-  URL: https://{Project ID}.appspot.com/
-  ```
-  4.Fluxengine Web Serviceに対してEvent JSON文字列を送信
-  ```
-  URL: https://{Project ID}.appspot.com/fluxengine-web/event
-  Content-Type: application/json
-  Method: POST
-  Body: Event JSON
 
-  ```
-  5.`["status":"SUCCEED"]`がレスポンスに出力されたら成功
+  4.CRONジョブを実行し、ステータスに「成功しました」が表示したらバッチタイプジョブが実行成功
+
 
 # Authors
 Fluxengine株式会社

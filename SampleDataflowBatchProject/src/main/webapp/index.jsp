@@ -3,21 +3,18 @@
 <head>
 <link href='//fonts.googleapis.com/css?family=Marmelad' rel='stylesheet'
 	type='text/css'>
-<title>Hello Fluxengine Web Service</title>
+<title>Hello Sample Dataflow Batch Project</title>
 </head>
 <body>
-	<h1>Hello Fluxengine Web Service -- GAE!</h1>
+	<h1>Hello Sample Dataflow Batch Project -- GAE!</h1>
 
-	<p>Fluxengine Web Serviceのサンプルです</p>
+	<p>Fluxengine Dataflow Batch Projectのサンプルです</p>
 
 	<h2>Usage:</h2>
 	<ol>
 		<li><p>DSLをDataStoreに登録してください。</p></li>
-		<li><p>
-				POSTリクエストボディにEventのJSON文字列を設定し、次のURLを実行してください：<br />
-				{Domain}/fluxengine-web/event
-			</p></li>
-		<li><p>["status":"SUCCEED"]がレスポンスに出力されたら成功です。</p></li>
+		<li><p>fluxengine-dataflowでバッチタイプジョブのテンプレートを作成してください。</p></li>
+		<li><p>CRONジョブを実行し、ステータスに「成功しました」が表示したらバッチタイプジョブが実行成功です。</p></li>
 	</ol>
 </body>
 </html>
