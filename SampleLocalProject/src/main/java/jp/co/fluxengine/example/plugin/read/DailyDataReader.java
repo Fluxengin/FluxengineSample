@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -30,11 +29,9 @@ public class DailyDataReader implements Fetch {
 		map.put("日時", LocalDateTime.now());
 		map.put("使用量", 500);
 
-		TimeUnit.SECONDS.sleep(1);
-
 		HashMap<String, Object> map1 = Maps.newHashMap();
 		map1.put("端末ID", "C01");
-		map1.put("日時", LocalDateTime.now());
+		map1.put("日時", LocalDateTime.now().plusSeconds(1));
 		map1.put("使用量", 600);
 		cursor.add(map);
 		cursor.add(map1);
