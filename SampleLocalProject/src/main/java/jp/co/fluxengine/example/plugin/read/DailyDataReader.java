@@ -1,5 +1,6 @@
 package jp.co.fluxengine.example.plugin.read;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,16 +22,16 @@ public class DailyDataReader implements Fetch {
 	private int length;
 
 	@DslName("get")
-	public void getList(String id) {
+	public void getList(String id) throws InterruptedException {
 		cursor = Lists.newArrayList();
 		HashMap<String, Object> map = Maps.newHashMap();
 		map.put("端末ID", "C01");
-		map.put("日時", "2018/11/10 00:00:01");
+		map.put("日時", LocalDateTime.now());
 		map.put("使用量", 500);
 
 		HashMap<String, Object> map1 = Maps.newHashMap();
 		map1.put("端末ID", "C01");
-		map1.put("日時", "2018/11/11 00:00:01");
+		map1.put("日時", LocalDateTime.now().plusSeconds(1));
 		map1.put("使用量", 600);
 		cursor.add(map);
 		cursor.add(map1);

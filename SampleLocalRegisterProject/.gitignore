@@ -2,6 +2,7 @@
 /build/
 /target/
 /bin/
+/conf/license.lic
 /.gradle/
 .classpath
 .project
