@@ -14,7 +14,6 @@
 		<slf4j.version>1.7.25</slf4j.version>
 		<log4j2.version>2.6.2</log4j2.version>
 		<fluxengine.version>1.0.4</fluxengine.version>
-		<beam.version>2.9.0</beam.version>
 	</properties>
 
 	<repositories>
@@ -59,35 +58,6 @@
 	</build>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>23.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.beam</groupId>
-			<artifactId>beam-sdks-java-core</artifactId>
-			<version>${beam.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.beam</groupId>
-			<artifactId>beam-sdks-java-io-google-cloud-platform</artifactId>
-			<version>${beam.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.beam</groupId>
-			<artifactId>beam-runners-direct-java</artifactId>
-			<version>${beam.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.beam</groupId>
-			<artifactId>beam-runners-google-cloud-dataflow-java</artifactId>
-			<version>${beam.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>jp.co.fluxengine</groupId>
 			<artifactId>fluxengine-dataflow</artifactId>
