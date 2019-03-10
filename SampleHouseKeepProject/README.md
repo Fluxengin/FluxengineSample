@@ -49,8 +49,7 @@ gradlew
   3. `/SampleHouseKeepProject/src/main/webapp/WEB-INF`配下の設定ファイルを環境に合わせて修正
   ```
     cron.xml ... スケジューラを設定する
-       url=/fluxengine-dataflow-batch?event=<イベントのネームスペース#イベント名>
-       ※URLエンコードを行うこと
+       url=fluxengine-dataflow-housekeep
 
     housekeepJob.properties ... イベントパラメータを設定する
        projectId=<バッチタイプジョブの実行先プロジェクトID>
