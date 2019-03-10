@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+  <cron>
+    <url>/fluxengine-dataflow-housekeep</url>
+    <description>Run job per 60 minutes</description>
+    <schedule>every 60 minutes</schedule>
+  </cron>
+</cronentries>
