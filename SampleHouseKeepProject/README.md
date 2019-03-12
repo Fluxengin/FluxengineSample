@@ -34,6 +34,7 @@ gradlew
   ```
 
   2. Housekeepバッチジョブを作成する
+
   ```
     ＜対象＞
     jp.co.fluxengine.gcp.dataflow.housekeep.HouseKeepProcessor
@@ -44,6 +45,8 @@ gradlew
     --stagingLocation=<ステージング先>
     --templateLocation= <テンプレートテージング先>
     --streaming=false
+
+    ※Cloud Shell環境で実行の場合は「/tools/fluxengine_housekeep.sh」を利用すること
   ```
 
   3. `/SampleHouseKeepProject/src/main/webapp/WEB-INF`配下の設定ファイルを環境に合わせて修正

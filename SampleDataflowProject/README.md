@@ -46,6 +46,8 @@ gradlew
         --streaming=false
         【デバッグログ出力設定（本番環境不要）】
             --defaultWorkerLogLevel=DEBUG
+
+      ※Cloud Shell環境で実行の場合は「/tools/dataflow_job_publisher.sh」を利用すること
   ```
   2.【任意】プラグインファイル(jar)の配置と設定変更
      本サンプルではSampleLocalProjectをパイプラインとして登録している。
