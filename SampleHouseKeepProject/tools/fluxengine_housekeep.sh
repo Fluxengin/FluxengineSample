@@ -17,7 +17,7 @@ else
     fi
 fi
 
-. $2
+. $1
 
 if [ -z ${GOOGLE_APPLICATION_CREDENTIALS} -o  -z ${PROJECT} ]; then
     echo "GOOGLE_APPLICATION_CREDENTIALS and PROJECT are required."
@@ -35,7 +35,7 @@ if [ $1 = "batch" ]; then
     OPTIONS=${OPTIONS}" --stagingLocation=${HOUSEKEEP_JOB_STAGING_LOCATION} --templateLocation=${TEMPLATE_LOCATION} --streaming=false"
 fi
 
-if [ $# -eq 3 ]; then
+if [ $# -eq 2 ]; then
      OPTIONS=${OPTIONS}" --defaultWorkerLogLevel=DEBUG"
 fi
 
