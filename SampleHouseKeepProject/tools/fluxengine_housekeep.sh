@@ -26,14 +26,14 @@ fi
 
 OPTIONS=" --runner=DataflowRunner --project=${PROJECT}"
 
-if [ $1 = "batch" ]; then
-    if [ -z $HOUSEKEEP_JOB_STAGING_LOCATION -o  -z ${TEMPLATE_LOCATION} ]; then
-        echo "HOUSEKEEP_JOB_STAGING_LOCATION and TEMPLATE_LOCATION are required."
-        exit 1
-    fi
 
-    OPTIONS=${OPTIONS}" --stagingLocation=${HOUSEKEEP_JOB_STAGING_LOCATION} --templateLocation=${TEMPLATE_LOCATION} --streaming=false"
+if [ -z $HOUSEKEEP_JOB_STAGING_LOCATION -o  -z ${TEMPLATE_LOCATION} ]; then
+    echo "HOUSEKEEP_JOB_STAGING_LOCATION and TEMPLATE_LOCATION are required."
+    exit 1
 fi
+
+OPTIONS=${OPTIONS}" --stagingLocation=${HOUSEKEEP_JOB_STAGING_LOCATION} --templateLocation=${TEMPLATE_LOCATION} --streaming=false"
+
 
 if [ $# -eq 2 ]; then
      OPTIONS=${OPTIONS}" --defaultWorkerLogLevel=DEBUG"
