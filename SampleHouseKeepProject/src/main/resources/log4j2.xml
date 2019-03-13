@@ -13,10 +13,6 @@
         <AppenderRef ref="Console"/>
         <AppenderRef ref="log"/>
     </Logger>
-    <Logger name="jp.co.fluxengine.example.dataflow" level="debug">
-        <AppenderRef ref="Console"/>
-        <AppenderRef ref="log"/>
-    </Logger>
 
     <Root level="warn">
     </Root>

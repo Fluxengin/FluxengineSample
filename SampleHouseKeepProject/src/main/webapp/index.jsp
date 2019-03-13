@@ -12,7 +12,7 @@
 
 	<h2>Usage:</h2>
 	<ol>
-		<li><p>fluxengine-dataflowでバッチタイプジョブのテンプレートを作成してください。</p></li>
+		<li><p>fluxengine-dataflow-housekeepでバッチタイプジョブのテンプレートを作成してください。</p></li>
 		<li><p>housekeepJob.propertiesに作成したジョブのステージング先を設定してください。</p></li>
 		<li><p>CRONジョブを実行し、ステータスに「成功しました」が表示したらバッチタイプジョブが実行成功です。</p></li>
 	</ol>
