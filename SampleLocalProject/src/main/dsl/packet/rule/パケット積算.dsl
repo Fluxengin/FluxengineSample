@@ -20,3 +20,11 @@ effect メール送信:
     日時: now()
     メッセージ: "パケット使用量を超過しました。"
     watch(パケット積算):
+
+state 状態遷移:
+    s1:
+        パケットイベント: s2
+    s2:
+    watch(パケットイベント):
+    persist(ユーザー情報.ユーザーID):
+        lifetime: today()

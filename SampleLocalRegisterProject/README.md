@@ -6,7 +6,7 @@
 ビルドツール：gradle & maven
 
 # Version
-Fluxengine 1.0.4
+Fluxengine 1.0.5
 
 # SetUp
 
@@ -36,7 +36,9 @@ gradlew
   4. LocalDslRegister.java に記載されている登録先設定を環境に合わせる
 
   5. LocalDslRegister.java を実行する
-
+   ```
+   ※Cloud Shell環境で実行の場合は「/tools/regisdsl.sh」を利用すること
+   ```
 # Authors
 Fluxengine株式会社
 
