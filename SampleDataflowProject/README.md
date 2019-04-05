@@ -6,7 +6,7 @@ Fluxengineを利用するDataflowパイプラインの登録を実施するこ�
 ビルドツール：gradle & maven
 
 # Version
-Fluxengine 1.0.5
+Fluxengine 1.0.6
 
 # SetUp
 プロジェクトを実行するために以下の設定が必要となります。
