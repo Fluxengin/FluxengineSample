@@ -11,7 +11,7 @@
 
 	<groupId>jp.co.fluxengine</groupId>
 	<artifactId>fluxengine-dataflow-batch-sample</artifactId>
-	<version>1.0.5</version>
+	<version>1.0.6</version>
 
 	<!-- [START properties] -->
 	<properties>
@@ -21,7 +21,7 @@
 			for your application -->
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 		<!-- [END_EXCLUDE] -->
-		<fluxengine.version>1.0.5</fluxengine.version>
+		<fluxengine.version>1.0.6</fluxengine.version>
 	</properties>
 	<!-- [END properties] -->
 
