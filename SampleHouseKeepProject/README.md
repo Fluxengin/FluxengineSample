@@ -6,7 +6,7 @@ fluxengine-dataflow-housekeepとfluxengine-dataflow-housekeep-servletのデプ�
 ビルドツール：gradle & maven
 
 # Version
-Fluxengine 1.0.5
+Fluxengine 1.0.6
 
 # SetUp
 
