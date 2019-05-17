@@ -8,6 +8,14 @@ Fluxengineを利用するDataflowパイプラインの登録を実施するこ�
 # Version
 Fluxengine 1.0.6
 
+# performanceLogDataflowJarフォルダの内容
+
+  1.fluxengine-dataflow-1.0.6.jar
+  性能集計ログを入れるdataflow.jar
+
+  2.fluxengine-dataflow-1.0.6-pom.xml
+  fluxengine-dataflow-1.0.6.jarのpom設定
+
 # SetUp
 プロジェクトを実行するために以下の設定が必要となります。
 
