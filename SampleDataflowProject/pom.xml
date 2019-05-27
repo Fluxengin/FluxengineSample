@@ -66,6 +66,14 @@
 			<version>${fluxengine.version}</version>
 		</dependency>
 
+        <dependency>
+            <groupId>jp.co.fluxengine</groupId>
+            <artifactId>fluxengine-dataflow-log</artifactId>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/fluxengine-dataflow-log-${fluxengine.version}.jar</systemPath>
+            <version>${fluxengine.version}</version>
+        </dependency>
+
 		<dependency>
 			<groupId>jp.co.fluxengine</groupId>
 			<artifactId>fluxengine-local-sample</artifactId>
