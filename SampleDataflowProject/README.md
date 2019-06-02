@@ -90,6 +90,12 @@ gradlew
       retryTimes=<リトライ回数>
     variant_cache.properties ... マスタ参照バリアントのキャッシュ設定
       maxRecords=キャッシュ上限レコード数（整数）
+
+    fluxengine.properties   ... 性能出力する関設定(将来的、設定ファイルをfluxengine.propertiesに統一する予定がある)
+      persormanceLogEnabled=false <性能ログ出力かの設定true:出力|false:出力しない>
+      sampling_n=100              <性能ログ出力 サンプリングn値,n値は、n値がm値より大きくはNG、1以上の数値>
+      sampling_m=100              <性能ログ出力 サンプリングm値、1以上の数値>
+      collectInterval=5           <性能ログ出力の集計間隔 単位：分 1以上の数値>
   ```
   4. StarterPipeline.java を実行する
 
