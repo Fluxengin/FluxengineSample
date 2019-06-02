@@ -239,11 +239,11 @@
 		</dependency>
 
 		<!--性能テスト用 start -->
-		<dependency>
-			<groupId>com.google.cloud</groupId>
-			<artifactId>google-cloud-logging</artifactId>
-			<version>1.56.0</version>
-		</dependency>
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>google-cloud-logging</artifactId>
+            <version>1.56.0</version>
+        </dependency>
 		<!--性能テスト用 end -->
 
 	</dependencies>
