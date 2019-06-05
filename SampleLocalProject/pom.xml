@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jp.co.fluxengine</groupId>
 	<artifactId>fluxengine-local-sample</artifactId>
-	<version>1.0.6</version>
+	<version>1.0.7</version>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -14,7 +14,7 @@
 		<log4j2.version>2.6.2</log4j2.version>
 
 		<!-- Fluxengineバージョン -->
-		<fluxengine.version>1.0.6</fluxengine.version>
+		<fluxengine.version>1.0.7</fluxengine.version>
 	</properties>
 
 	<build>

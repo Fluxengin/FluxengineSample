@@ -1,0 +1,4 @@
+cron:
+  - description: Run Housekeep job per 60 minutes
+    url: /fluxengine-dataflow-housekeep
+    schedule: every 60 minutes

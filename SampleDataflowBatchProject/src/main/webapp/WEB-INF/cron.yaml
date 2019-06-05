@@ -1,0 +1,4 @@
+cron:
+  - description: Run job per 60 minutes
+    url: /fluxengine-dataflow-batch?event=event%2f%e3%83%91%e3%82%b1%e3%83%83%e3%83%88%e3%82%a4%e3%83%99%e3%83%b3%e3%83%88%23%e3%83%91%e3%82%b1%e3%83%83%e3%83%88%e3%82%a4%e3%83%99%e3%83%b3%e3%83%88
+    schedule: every 60 minutes
