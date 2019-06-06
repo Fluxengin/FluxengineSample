@@ -6,7 +6,7 @@
 ビルドツール：gradle & maven
 
 # Version
-Fluxengine 1.0.6
+Fluxengine 1.0.7
 
 # SetUp
 

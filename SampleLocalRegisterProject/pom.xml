@@ -4,13 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jp.co.fluxengine</groupId>
 	<artifactId>fluxengine-sample-local-register</artifactId>
-	<version>1.0.6</version>
+	<version>1.0.7</version>
 
 	<properties>
 		<java.version>1.8</java.version>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
-		<fluxengine.version>1.0.6</fluxengine.version>
+		<fluxengine.version>1.0.7</fluxengine.version>
 	</properties>
 
 	<dependencies>
