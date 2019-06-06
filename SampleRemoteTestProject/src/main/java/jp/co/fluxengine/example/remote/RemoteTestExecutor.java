@@ -72,7 +72,7 @@ public class RemoteTestExecutor {
 		//****************************************************************
 		String namespace = "NAMESPACE";
 		String kind = "PERSISTER";
-		String exportFileName = "/test.json";
+		String exportFileName = "./test.json";
 
 		// 抽出先エンティティ指定
 		CloudStoreSelecter cloudStoreSelecter = new CloudStoreSelecter(namespace, kind);
