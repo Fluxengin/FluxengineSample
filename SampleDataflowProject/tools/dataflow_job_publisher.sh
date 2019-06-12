@@ -50,7 +50,7 @@ if [ $1 = "stream" ]; then
 fi
 
 
-OPTIONS=${OPTIONS}" --region==asia-northeast1"
+OPTIONS=${OPTIONS}" --region=asia-northeast1"
 
 if [ $# -eq 3 ]; then
      OPTIONS=${OPTIONS}" --defaultWorkerLogLevel=DEBUG"
