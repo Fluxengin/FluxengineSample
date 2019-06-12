@@ -37,7 +37,7 @@ if [ $1 = "batch" ]; then
         exit 1
     fi
 
-    OPTIONS=${OPTIONS}" --stagingLocation=${BATCH_JOB_STAGING_LOCATION} --templateLocation=${TEMPLATE_LOCATION} --region==asia-northeast1  --streaming=false"
+    OPTIONS=${OPTIONS}" --stagingLocation=${BATCH_JOB_STAGING_LOCATION} --templateLocation=${TEMPLATE_LOCATION} --streaming=false"
 fi
 
 if [ $1 = "stream" ]; then
@@ -46,9 +46,11 @@ if [ $1 = "stream" ]; then
         exit 1
     fi
 
-    OPTIONS=${OPTIONS}" --stagingLocation=${STREAM_JOB_STAGING_LOCATION} --fromSubscription=${FROM_SUBSCRIPTION} --region==asia-northeast1 --streaming=true"
+    OPTIONS=${OPTIONS}" --stagingLocation=${STREAM_JOB_STAGING_LOCATION} --fromSubscription=${FROM_SUBSCRIPTION} --streaming=true"
 fi
 
+
+OPTIONS=${OPTIONS}" --region==asia-northeast1"
 
 if [ $# -eq 3 ]; then
      OPTIONS=${OPTIONS}" --defaultWorkerLogLevel=DEBUG"
