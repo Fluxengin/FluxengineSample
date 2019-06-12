@@ -4,14 +4,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jp.co.fluxengine</groupId>
 	<artifactId>fluxengine-persist-manager</artifactId>
-	<version>1.0.6</version>
+	<version>1.0.7</version>
 
 	<properties>
 		<java.version>1.8</java.version>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<fluxengine.version>1.0.6</fluxengine.version>
+		<fluxengine.version>1.0.7</fluxengine.version>
+		<google.cloud.version>1.56.0</google.cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -22,7 +23,7 @@
 		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-datastore</artifactId>
-			<version>1.56.0</version>
+			<version>${google.cloud.version}</version>
 		</dependency>
 
 		<dependency>
