@@ -41,7 +41,7 @@ gradlew
         --runner=DataflowRunner
         --project=<GCPプロジェクトID>
         --stagingLocation=<ステージング先>
-        --fromTopic= <受信元Pub/Subトピックス>
+        --FromSubscription= <受信元Pub/Subサブスクリプション>
         --streaming=true
         【デバッグログ出力設定（本番環境不要）】
             --defaultWorkerLogLevel=DEBUG
