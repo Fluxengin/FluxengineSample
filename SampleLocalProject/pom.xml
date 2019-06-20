@@ -19,26 +19,26 @@
 
 	<build>
 		<plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.1</version>
-                <configuration>
-                    <createDependencyReducedPom>false</createDependencyReducedPom>
-                    <transformers>
-                        <transformer
-                            implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
-                    </transformers>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.2.1</version>
+				<configuration>
+					<createDependencyReducedPom>false</createDependencyReducedPom>
+					<transformers>
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+					</transformers>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -65,13 +65,6 @@
 
 	<dependencies>
 
-		<dependency>
-			<groupId>jp.co.fluxengine</groupId>
-			<artifactId>fluxengine-local-test-runner</artifactId>
-			<version>${fluxengine.version}</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/fluxengine-local-test-runner-${fluxengine.version}.jar</systemPath>
-		</dependency>
 
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
@@ -98,13 +91,23 @@
 		<dependency>
 			<groupId>com.google.cloud.sql</groupId>
 			<artifactId>mysql-socket-factory-connector-j-8</artifactId>
-			<version>1.0.12</version>
+			<version>1.0.11</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.google.cloud.sql</groupId>
+			<artifactId>jdbc-socket-factory-core</artifactId>
+			<version>1.0.11</version>
+		</dependency>
 		<dependency>
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP</artifactId>
 			<version>3.3.0</version>
 		</dependency>
+
+		      <dependency>
+            <groupId>jp.co.fluxengine</groupId>
+            <artifactId>fluxengine-core</artifactId>
+            <version>${fluxengine.version}</version>
+        </dependency>
 	</dependencies>
 </project>

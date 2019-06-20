@@ -27,7 +27,9 @@ public class UserInfoVariantCloudSql {
 		long n =5368709120l;
 		 try (Connection conn = CloudSqlPool.getDataSource().getConnection()) {
 		     PreparedStatement voteStmt =  conn.prepareStatement(
-		             "SELECT name        , content  FROM variant where name ='" + id);
+		             "SELECT name , content  FROM entries where name = ?");
+		         voteStmt.setString(1, id);
+
 		         // Execute the statement
 		         ResultSet voteResults = voteStmt.executeQuery();
 		         // Convert a ResultSet into Vote objects

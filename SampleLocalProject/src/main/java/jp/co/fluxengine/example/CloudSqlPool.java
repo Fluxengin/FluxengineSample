@@ -20,7 +20,7 @@ public class CloudSqlPool {
     public CloudSqlPool() {
     }
 
-    private static final String CLOUD_SQL_CONNECTION_NAME;
+    private static final String CLOUD_SQL_INSTANCE_NAME;
     private static final String DB_USER;
     private static final String DB_PASS;
     private static final String DB_NAME;
@@ -46,7 +46,7 @@ public class CloudSqlPool {
             }
         }
 
-        CLOUD_SQL_CONNECTION_NAME = props.getProperty("CLOUD_SQL_CONNECTION_NAME");
+        CLOUD_SQL_INSTANCE_NAME = props.getProperty("CLOUD_SQL_INSTANCE_NAME");
 
         DB_USER = props.getProperty("DB_USER");
         DB_PASS = props.getProperty("DB_PASS");
@@ -78,7 +78,7 @@ public class CloudSqlPool {
         // For Java users, the Cloud SQL JDBC Socket Factory can provide authenticated connections.
         // See https://github.com/GoogleCloudPlatform/cloud-sql-jdbc-socket-factory for details.
         config.addDataSourceProperty("socketFactory", "com.google.cloud.sql.mysql.SocketFactory");
-        config.addDataSourceProperty("cloudSqlInstance", CLOUD_SQL_CONNECTION_NAME);
+        config.addDataSourceProperty("cloudSqlInstance", CLOUD_SQL_INSTANCE_NAME);
         config.addDataSourceProperty("useSSL", "false");
 
         // ... Specify additional connection properties here.
