@@ -17,13 +17,13 @@ event クラウドDB参照イベント:
 struct マスタダミー情報バリアント:
     ユーザーID: string
     パケット上限: number
-    get(マスター参照イベント.端末ID):
+    get(マスターダミー参照イベント.端末ID):
         cache: today()
 
 struct クラウドSQL情報バリアント:
     ユーザーID: string
     パケット上限: number
-    get(クラウドマスター参照イベント.端末ID):
+    get(クラウドDB参照イベント.端末ID):
         cache: today()
 
 rule マスターダミー参照ルール:
