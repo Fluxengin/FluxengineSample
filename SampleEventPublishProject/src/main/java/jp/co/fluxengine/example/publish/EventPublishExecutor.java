@@ -79,9 +79,9 @@ public class EventPublishExecutor {
             // JSON形式イベント投入
 //            System.out.println("回数:" + i);
             if (StringUtils.equals(args[2], "sameKey")) {
-                executor.publishJsonEvent(args[1], 0,Integer.valueOf(args[0]),args[2]);
+                executor.publishJsonEvent(args[1], 0,Integer.valueOf(args[0]),args[3]);
             }else {
-                executor.publishJsonEvent(args[1], i,Integer.valueOf(args[0]),args[2]);
+                executor.publishJsonEvent(args[1], i,Integer.valueOf(args[0]),args[3]);
             }
         }
 
