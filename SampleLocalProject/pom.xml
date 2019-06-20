@@ -97,6 +97,12 @@
 			<groupId>com.google.cloud.sql</groupId>
 			<artifactId>jdbc-socket-factory-core</artifactId>
 			<version>1.0.11</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.google.api-client</groupId>
+					<artifactId>google-api-client</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>com.zaxxer</groupId>
