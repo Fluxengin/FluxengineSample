@@ -1,11 +1,18 @@
 package jp.co.fluxengine.example.publish;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
+
+import com.google.common.collect.Lists;
 
 import jp.co.fluxengine.example.plugin.read.DailyDataReader;
 import jp.co.fluxengine.publisher.CsvPublisher;
 import jp.co.fluxengine.publisher.JsonPublisher;
 import jp.co.fluxengine.publisher.ReadPublisher;
+import jp.co.fluxengine.stateengine.util.PropertiesUtils;
 
 /**
  * ローカル開発環境で指定のPub/Subに対してイベントを投入するサンプルです。
@@ -56,36 +63,70 @@ import jp.co.fluxengine.publisher.ReadPublisher;
  */
 public class EventPublishExecutor {
 
-	public static void main(String[] args) throws NoSuchMethodException, SecurityException {
 
-		EventPublishExecutor executor = new EventPublishExecutor();
-		// CSVデータを用いたイベント投入
-		executor.publishCSVData();
+    private List<String> messages = Lists.newArrayListWithCapacity(1000);
 
-		// JSON形式イベント投入
-		executor.publishJsonEvent();
+    private static int  j= 0;
 
-		// Readプラグインを利用したイベント投入
-		executor.publishWithReadPlugin();
-	}
+    public static void main(String[] args) throws NoSuchMethodException, SecurityException, NumberFormatException, IOException {
 
-	/* CSVデータを用いたイベント投入 */
-	private void publishCSVData() {
-		// 読み込み対象CSVの格納先を指定
-		String csvFileFullPath = "input/event.csv";
-		// データ投入
-		CsvPublisher publisher = new CsvPublisher(csvFileFullPath);
-		publisher.publish();
-	}
+        EventPublishExecutor executor = new EventPublishExecutor();
+        // CSVデータを用いたイベント投入
+        //      executor.publishCSVData();
 
-	/* JSON形式イベント投入 */
-	private void publishJsonEvent() {
-		// 投入データの定義
-		String eventJosn = "[{\"eventName\":\"パケットイベント\", \"namespace\":\"event/パケットイベント\", \"createTime\":null, \"property\":{\"端末ID\":\"C01\",\"日時\":\"2018/11/10 00:00:01\",\"使用量\":500}}] ";
-		// データ投入
-		JsonPublisher publisher = new JsonPublisher(eventJosn);
-		publisher.publish();
-	}
+        //1000件一回
+        for (int i = 0; i < Integer.valueOf(args[0]); i++) {
+            // JSON形式イベント投入
+//            System.out.println("回数:" + i);
+            if (StringUtils.equals(args[2], "sameKey")) {
+                executor.publishJsonEvent(args[1], 0,Integer.valueOf(args[0]),args[2]);
+            }else {
+                executor.publishJsonEvent(args[1], i,Integer.valueOf(args[0]),args[2]);
+            }
+        }
+
+        // Readプラグインを利用したイベント投入
+        //      executor.publishWithReadPlugin();
+    }
+
+    /* CSVデータを用いたイベント投入 */
+    private void publishCSVData() {
+        // 読み込み対象CSVの格納先を指定
+        String csvFileFullPath = "input/event.csv";
+        // データ投入
+        CsvPublisher publisher = new CsvPublisher(csvFileFullPath);
+        publisher.publish();
+    }
+
+    /* JSON形式イベント投入 */
+    private void publishJsonEvent(String createTime, int count, int max,String eventName ) throws IOException {
+        // 投入データの定義
+        //      String eventJosn = "[{\"eventName\":\"パケットイベント\", \"namespace\":\"event/パケットイベント\", \"createTime\":\"2019-05-09T00:00:00.001\", \"property\":{\"端末ID\":\"C01\",\"日時\":\"2018/11/10 00:00:01\",\"使用量\":500}}] ";
+        String eventJosn = "[{\"eventName\":\""
+                + "eventName"
+                + "\", \"namespace\":\"rule/性能検証ルール\""
+                + ", \"createTime\":\""
+                + createTime
+                + "\", \"property\":{\"端末ID\":\""
+                + "C" + StringUtils.leftPad(String.valueOf(count), 10, "0");
+//                + "\",\"日時\":\"2018/11/10 00:00:01\",\"使用量\":500}}] ";
+        // データ投入
+        messages.add(eventJosn);
+        JsonPublisher publisher = new JsonPublisher(eventJosn);
+        if (max < 1000) {
+            return;
+        }else {
+            j++;
+            if (j == 1000 || count ==max-1 ) {
+                j=0;
+            }else {
+                return;
+            }
+        }
+
+        publisher.publishMulti(messages, PropertiesUtils.getProperty("totopic"), PropertiesUtils.getProperty("projectid"));
+        messages.clear();
+    }
 
 	/* Readプラグインを利用したイベント投入 */
 	private void publishWithReadPlugin() throws NoSuchMethodException, SecurityException {
