@@ -2,7 +2,7 @@ event エフェクタダミー送信イベント:
     端末ID: string
 
 event エフェクタ送信イベント:
-        端末ID: string
+    端末ID: string
 
 
 event イベントのみ:
