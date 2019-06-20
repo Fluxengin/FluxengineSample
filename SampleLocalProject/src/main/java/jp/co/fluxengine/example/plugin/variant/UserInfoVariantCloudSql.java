@@ -65,12 +65,12 @@ public class UserInfoVariantCloudSql {
         IDLE_TIMEOUT= Integer.valueOf(props.getProperty("IDLE_TIMEOUT"));
         MAX_LIFETIME= Integer.valueOf(props.getProperty("MAX_LIFETIME"));
         props = null;
-
-        pool = createConnectionPool();
     }
 
 	private static DataSource createConnectionPool() {
-
+        if (pool != null) {
+            return pool;
+        }
 
 	    // [START cloud_sql_mysql_servlet_create]
 	    // The configuration object specifies behaviors for the connection pool.
@@ -132,6 +132,10 @@ public class UserInfoVariantCloudSql {
 
 	@DslName("get")
 	public Map<String, Object> get(String id) {
+
+	    if (pool ==null) {
+	        pool = createConnectionPool();
+	    }
 
 		log.debug("UserInfoVariantCloudSql:" + id);
 		long n =5368709120l;
