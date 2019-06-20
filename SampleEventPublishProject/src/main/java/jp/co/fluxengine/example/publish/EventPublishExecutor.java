@@ -103,7 +103,7 @@ public class EventPublishExecutor {
         // 投入データの定義
         //      String eventJosn = "[{\"eventName\":\"パケットイベント\", \"namespace\":\"event/パケットイベント\", \"createTime\":\"2019-05-09T00:00:00.001\", \"property\":{\"端末ID\":\"C01\",\"日時\":\"2018/11/10 00:00:01\",\"使用量\":500}}] ";
         String eventJosn = "[{\"eventName\":\""
-                + "eventName"
+                + eventName
                 + "\", \"namespace\":\"rule/性能検証ルール\""
                 + ", \"createTime\":\""
                 + createTime
