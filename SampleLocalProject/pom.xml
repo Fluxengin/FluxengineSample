@@ -52,5 +52,16 @@
 			<scope>system</scope>
 			<systemPath>${basedir}/lib/fluxengine-local-test-runner-${fluxengine.version}.jar</systemPath>
 		</dependency>
+
+	<dependency>
+		<groupId>org.apache.logging.log4j</groupId>
+		<artifactId>log4j-core</artifactId>
+		<version>${log4j2.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.logging.log4j</groupId>
+		<artifactId>log4j-api</artifactId>
+		<version>${log4j2.version}</version>
+	</dependency>
 	</dependencies>
 </project>

@@ -9,13 +9,14 @@ import org.apache.logging.log4j.Logger;
 import jp.co.fluxengine.stateengine.annotation.DslName;
 import jp.co.fluxengine.stateengine.annotation.Variant;
 
-@Variant("variant/ユーザー情報#ユーザー情報,rule/性能検証ルール#マスタダミー情報バリアント")
-public class UserInfoVariant {
+@Variant("rule/性能検証ルール#クラウドSQL情報バリアント")
+public class UserInfoVariantCloudSql {
 
-	private static final Logger log = LogManager.getLogger(UserInfoVariant.class);
+	private static final Logger log = LogManager.getLogger(UserInfoVariantCloudSql.class);
 
 	@DslName("get")
 	public Map<String, Object> get(String id) {
+		//TODO 永続化しているデータを取得したり、加工処理を記載
 		log.debug("UserInfoVariant:" + id);
 		//ダミ－データ
 		Map<String, Object> m = new HashMap<String, Object>();

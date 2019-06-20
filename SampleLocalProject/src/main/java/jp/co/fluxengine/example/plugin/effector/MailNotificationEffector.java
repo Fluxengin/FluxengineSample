@@ -9,7 +9,7 @@ import jp.co.fluxengine.stateengine.annotation.DslName;
 import jp.co.fluxengine.stateengine.annotation.Effector;
 import jp.co.fluxengine.stateengine.annotation.Post;
 
-@Effector("effector/ユーザー通知#メール送信")
+@Effector("effector/ユーザー通知#メール送信,rule/性能検証ルール#ダミー送信")
 public class MailNotificationEffector {
 
 	private static final Logger log = LogManager.getLogger(MailNotificationEffector.class);
