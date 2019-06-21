@@ -111,7 +111,7 @@ public class EventPublishExecutor {
                 + "C" + StringUtils.leftPad(String.valueOf(count), 10, "0")
 //                + "\",\"日時\":\"2018/11/10 00:00:01\""
 //                + ",\"使用量\":500"
-                + "}}] ";
+                + "}}]";
         // データ投入
         messages.add(eventJosn);
         JsonPublisher publisher = new JsonPublisher(eventJosn);
