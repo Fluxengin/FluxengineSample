@@ -1,6 +1,5 @@
 package jp.co.fluxengine.example.plugin.effector;
 
-import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -16,11 +15,7 @@ import jp.co.fluxengine.stateengine.annotation.Effector;
 import jp.co.fluxengine.stateengine.annotation.Post;
 
 @Effector("rule/性能検証ルール#DB書き込み送信")
-public class MailNotificationCloudSqlEffector implements Serializable{
-    /**
-     *
-     */
-    private static final long serialVersionUID = -6441519589689496203L;
+public class MailNotificationCloudSqlEffector {
 
     private static final Logger log = LogManager.getLogger(MailNotificationCloudSqlEffector.class);
 
