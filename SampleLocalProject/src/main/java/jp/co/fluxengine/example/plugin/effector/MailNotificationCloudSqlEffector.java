@@ -22,7 +22,7 @@ public class MailNotificationCloudSqlEffector implements Serializable{
      */
     private static final long serialVersionUID = -6441519589689496203L;
 
-    private static final Logger log = LogManager.getLogger(MailNotificationEffector.class);
+    private static final Logger log = LogManager.getLogger(MailNotificationCloudSqlEffector.class);
 
     @DslName("ユーザーID")
     private String userId;
