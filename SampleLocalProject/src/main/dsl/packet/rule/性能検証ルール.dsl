@@ -1,3 +1,15 @@
+persister Persister保存:
+    使用量: number
+    persist(Persister保存イベント.端末ID):
+        lifetime: today()
+
+persist Persister保存:
+    使用量: 100
+    watch(Persister保存イベント):
+
+event Persister保存イベント:
+    端末ID: string
+
 event エフェクタダミー送信イベント:
     端末ID: string
 
