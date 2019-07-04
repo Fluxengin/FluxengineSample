@@ -38,9 +38,9 @@ public class CloudSqlPool {
     static {
         Properties props = new Properties();
         if (StringUtils.isNotEmpty(System.getenv().get("CONF"))) {
-            load(System.getenv().get("CONF") + File.separator + "application-jdbc.properties", props);
+            load(System.getenv().get("CONF") + File.separator + "cloud-sql.properties", props);
         } else {
-            InputStream in = UserInfoVariantCloudSql.class.getResourceAsStream("/" + "application-jdbc.properties");
+            InputStream in = UserInfoVariantCloudSql.class.getResourceAsStream("/" + "cloud-sql.properties");
             if (in != null) {
                 load(in, props);
             }
