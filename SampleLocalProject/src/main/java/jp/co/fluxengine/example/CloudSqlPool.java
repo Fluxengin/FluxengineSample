@@ -83,6 +83,17 @@ public class CloudSqlPool {
         config.addDataSourceProperty("cloudSqlInstance", CLOUD_SQL_INSTANCE_NAME);
         config.addDataSourceProperty("useSSL", "false");
 
+        //追加by mdc begin
+        config.addDataSourceProperty("cachePrepStmts", "true");
+        config.addDataSourceProperty("prepStmtCacheSize", "250");
+        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+        config.addDataSourceProperty("useLocalSessionState", "true");
+        config.addDataSourceProperty("cacheResultSetMetadata", "true");
+        config.addDataSourceProperty("cacheServerConfiguration", "true");
+        config.addDataSourceProperty("elideSetAutoCommits", "true");
+        config.addDataSourceProperty("maintainTimeStats", "false");
+        //追加by mdc end
+
         // ... Specify additional connection properties here.
         // [START_EXCLUDE]
 
