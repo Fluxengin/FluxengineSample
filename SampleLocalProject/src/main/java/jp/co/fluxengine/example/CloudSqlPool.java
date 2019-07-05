@@ -14,8 +14,6 @@ import org.apache.commons.lang.StringUtils;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-import jp.co.fluxengine.example.plugin.variant.UserInfoVariantCloudSql;
-
 public class CloudSqlPool {
     public CloudSqlPool() {
     }
@@ -29,6 +27,8 @@ public class CloudSqlPool {
 
     private static final int MINIMUM_IDLE;
 
+    private static final int CONNECTION_TIMEOUT;
+
     private static final int IDLE_TIMEOUT;
 
     private static final int MAX_LIFETIME;
@@ -37,10 +37,11 @@ public class CloudSqlPool {
 
     static {
         Properties props = new Properties();
-        if (StringUtils.isNotEmpty(System.getenv().get("CONF"))) {
+        String conf = System.getenv().get("CONF");
+        if (StringUtils.isNotEmpty(conf)) {
             load(System.getenv().get("CONF") + File.separator + "cloud-sql.properties", props);
         } else {
-            InputStream in = UserInfoVariantCloudSql.class.getResourceAsStream("/" + "cloud-sql.properties");
+            InputStream in = CloudSqlPool.class.getResourceAsStream("/" + "cloud-sql.properties");
             if (in != null) {
                 load(in, props);
             }
@@ -53,6 +54,7 @@ public class CloudSqlPool {
         DB_NAME = props.getProperty("DB_NAME");
         MAXIMUM_POOLSIZE = Integer.valueOf(props.getProperty("MAXIMUM_POOLSIZE"));
         MINIMUM_IDLE = Integer.valueOf(props.getProperty("MINIMUM_IDLE"));
+        CONNECTION_TIMEOUT = Integer.valueOf(props.getProperty("CONNECTION_TIMEOUT"));
         IDLE_TIMEOUT = Integer.valueOf(props.getProperty("IDLE_TIMEOUT"));
         MAX_LIFETIME = Integer.valueOf(props.getProperty("MAX_LIFETIME"));
         props = null;
@@ -97,10 +99,10 @@ public class CloudSqlPool {
         // setConnectionTimeout is the maximum number of milliseconds to wait for a connection checkout.
         // Any attempt to retrieve a connection from this pool that exceeds the set limit will throw an
         // SQLException.
-        config.setConnectionTimeout(IDLE_TIMEOUT); // 10 seconds
+        config.setConnectionTimeout(CONNECTION_TIMEOUT); // 10 seconds
         // idleTimeout is the maximum amount of time a connection can sit in the pool. Connections that
         // sit idle for this many milliseconds are retried if minimumIdle is exceeded.
-        config.setIdleTimeout(MAX_LIFETIME); // 10 minutes
+        config.setIdleTimeout(IDLE_TIMEOUT); // 10 minutes
         // [END cloud_sql_mysql_servlet_timeout]
 
         // [START cloud_sql_mysql_servlet_backoff]
@@ -113,7 +115,7 @@ public class CloudSqlPool {
         // live longer than this many milliseconds will be closed and reestablished between uses. This
         // value should be several minutes shorter than the database's timeout value to avoid unexpected
         // terminations.
-        config.setMaxLifetime(1800000); // 30 minutes
+        config.setMaxLifetime(MAX_LIFETIME); // 30 minutes
         // [END cloud_sql_mysql_servlet_lifetime]
 
         // [END_EXCLUDE]
