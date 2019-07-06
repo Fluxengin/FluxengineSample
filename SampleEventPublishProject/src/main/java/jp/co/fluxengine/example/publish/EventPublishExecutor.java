@@ -114,11 +114,13 @@ public class EventPublishExecutor {
                 + "}}]";
         // データ投入
         messages.add(eventJosn);
+        j++;
         JsonPublisher publisher = new JsonPublisher(eventJosn);
-        if (max < 1000) {
+        if (max < 1000 && j== max) {
+            publisher.publishMulti(messages, PropertiesUtils.getProperty("totopic"), PropertiesUtils.getProperty("projectid"));
             return;
         }else {
-            j++;
+
             if (j == 1000 || count ==max-1 ) {
                 j=0;
             }else {
