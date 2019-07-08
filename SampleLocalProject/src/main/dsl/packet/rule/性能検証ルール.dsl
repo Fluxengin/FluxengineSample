@@ -81,3 +81,26 @@ writeMySQL w:
       alert_message<varchar>: mysqlInsertイベント.端末ID
       real_num_rate<bigint>: 3
   watch(mysqlInsertイベント):
+
+
+readBigQuery bq:
+    select:
+        name<string> : string
+        weight<int>: number
+        flg<boolean>: bool
+        createtime<timestamp>: datetime
+        day<date>: date
+        time<time>: datetime
+    sql: bigquery/hoge.sql
+    #params:
+    #    weight<int>: パケットイベント.使用量
+    watch(readBigQueryイベント):
+
+event readBigQueryイベント:
+    端末ID: string
+
+effect DB書き込み送信:
+    ユーザーID: readBigQueryイベント.端末ID
+    日時: now()
+    メッセージ: "エフェクタ実行"
+    watch(エフェクタ送信イベント):
