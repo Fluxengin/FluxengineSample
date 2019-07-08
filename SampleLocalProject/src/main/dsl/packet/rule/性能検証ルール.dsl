@@ -67,3 +67,17 @@ effect DB書き込み送信:
     日時: now()
     メッセージ: "エフェクタ実行"
     watch(エフェクタ送信イベント):
+
+event mysqlInsertイベント:
+    端末ID: string
+
+
+writeMySQL w:
+  sql: mysql/hoge.sql
+  params:
+      check_item_id<bigint>: 1
+      check_ctgr_item_detail_id<bigint>: 2
+      checked_date_time<timestamp>: now()
+      alert_message<varchar>: mysqlInsertイベント.端末ID
+      real_num_rate<bigint>: 3
+  watch(mysqlInsertイベント):
