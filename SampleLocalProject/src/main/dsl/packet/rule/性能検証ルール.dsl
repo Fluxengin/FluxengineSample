@@ -99,7 +99,7 @@ readBigQuery bq:
 event readBigQueryイベント:
     端末ID: string
 
-effect DB書き込み送信:
+effect DB書き込み送信 as DB書き込み送信2:
     ユーザーID: readBigQueryイベント.端末ID
     日時: now()
     メッセージ: "エフェクタ実行"
