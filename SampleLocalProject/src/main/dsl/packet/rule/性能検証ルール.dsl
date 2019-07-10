@@ -7,6 +7,13 @@ persist Persister保存:
     使用量: 100
     watch(Persister保存イベント):
 
+event Persister参照イベント:
+    端末ID: string
+
+rule Persister参照ルール:
+    0 < Persister保存.使用量:
+    watch(Persister参照イベント):
+
 event Persister保存イベント:
     端末ID: string
 
