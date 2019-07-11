@@ -25,7 +25,7 @@ persist Persister参照:
 
 
 rule Persister参照ルール:
-    0 < Persister保存.使用量:
+    0 < Persister参照.使用量:
     watch(Persister参照イベント):
 
 event Persister保存イベント:
