@@ -12,6 +12,8 @@ import jp.co.fluxengine.example.plugin.read.DailyDataReader;
 import jp.co.fluxengine.publisher.CsvPublisher;
 import jp.co.fluxengine.publisher.JsonPublisher;
 import jp.co.fluxengine.publisher.ReadPublisher;
+import jp.co.fluxengine.stateengine.model.datom.Event;
+import jp.co.fluxengine.stateengine.util.JacksonUtils;
 import jp.co.fluxengine.stateengine.util.PropertiesUtils;
 
 /**
@@ -68,6 +70,16 @@ public class EventPublishExecutor {
 
     private static int  j= 0;
 
+    /**
+     * 引数１：最大件数
+     * 引数 2：sameKey
+     * 引数 2：event json文字列
+     * @param args
+     * @throws NoSuchMethodException
+     * @throws SecurityException
+     * @throws NumberFormatException
+     * @throws IOException
+     */
     public static void main(String[] args) throws NoSuchMethodException, SecurityException, NumberFormatException, IOException {
 
         EventPublishExecutor executor = new EventPublishExecutor();
@@ -77,12 +89,8 @@ public class EventPublishExecutor {
         //1000件一回
         for (int i = 0; i < Integer.valueOf(args[0]); i++) {
             // JSON形式イベント投入
-//            System.out.println("回数:" + i);
-            if (StringUtils.equals(args[2], "sameKey")) {
-                executor.publishJsonEvent(args[1], 0,Integer.valueOf(args[0]),args[3]);
-            }else {
-                executor.publishJsonEvent(args[1], i,Integer.valueOf(args[0]),args[3]);
-            }
+            //            System.out.println("回数:" + i);
+            executor.publishJsonEvent(args[2], i, Integer.valueOf(args[0]), StringUtils.equals(args[1], "sameKey"));
         }
 
         // Readプラグインを利用したイベント投入
@@ -96,6 +104,36 @@ public class EventPublishExecutor {
         // データ投入
         CsvPublisher publisher = new CsvPublisher(csvFileFullPath);
         publisher.publish();
+    }
+
+
+    private void publishJsonEvent(String eventJosn, int count, int max ,boolean sameKey) throws IOException {
+
+        List<Event> ret  = (List<Event>) JacksonUtils.readStringAsObject(eventJosn, List.class, Event.class);
+
+        if (!sameKey) {
+            ret.get(0).getProperty().put("端末ID", "C" + StringUtils.leftPad(String.valueOf(count), 10, "0"));
+            eventJosn = JacksonUtils.writeValueAsString(ret);
+        }
+
+        // データ投入
+        messages.add(eventJosn);
+        j++;
+        JsonPublisher publisher = new JsonPublisher(eventJosn);
+        if (max < 1000 && j== max) {
+            publisher.publishMulti(messages, PropertiesUtils.getProperty("totopic"), PropertiesUtils.getProperty("projectid"));
+            return;
+        }else {
+
+            if (j == 1000 || count ==max-1 ) {
+                j=0;
+            }else {
+                return;
+            }
+        }
+
+        publisher.publishMulti(messages, PropertiesUtils.getProperty("totopic"), PropertiesUtils.getProperty("projectid"));
+        messages.clear();
     }
 
     /* JSON形式イベント投入 */
