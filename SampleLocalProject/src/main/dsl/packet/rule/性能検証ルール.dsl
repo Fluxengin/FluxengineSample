@@ -16,7 +16,7 @@ event Persister参照DummyEvent:
 
 persister Persister参照:
     使用量: number
-    persist("C01"):
+    persist("C01000002"):
         lifetime: today()
 
 persist Persister参照:
@@ -93,7 +93,7 @@ event mysqlInsertイベント:
     端末ID: string
 
 
-writeMySQL w:
+effectMySQL w:
   sql: mysql/hoge.sql
   params:
       check_item_id<bigint>: 1
