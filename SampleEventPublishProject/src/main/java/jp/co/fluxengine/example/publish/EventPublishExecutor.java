@@ -1,5 +1,6 @@
 package jp.co.fluxengine.example.publish;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.List;
@@ -73,7 +74,7 @@ public class EventPublishExecutor {
     /**
      * 引数１：最大件数
      * 引数 2：sameKey
-     * 引数 2：event json文字列
+     * 引数 2：event json文字列を格納するファイルフルーパス
      * @param args
      * @throws NoSuchMethodException
      * @throws SecurityException
@@ -82,6 +83,7 @@ public class EventPublishExecutor {
      */
     public static void main(String[] args) throws NoSuchMethodException, SecurityException, NumberFormatException, IOException {
 
+        List<String> lines = org.apache.commons.io.FileUtils.readLines(new File(args[2]), "utf-8");
         EventPublishExecutor executor = new EventPublishExecutor();
         // CSVデータを用いたイベント投入
         //      executor.publishCSVData();
@@ -90,7 +92,7 @@ public class EventPublishExecutor {
         for (int i = 0; i < Integer.valueOf(args[0]); i++) {
             // JSON形式イベント投入
             //            System.out.println("回数:" + i);
-            executor.publishJsonEvent(args[2], i, Integer.valueOf(args[0]), StringUtils.equals(args[1], "sameKey"));
+            executor.publishJsonEvent(lines.get(0), i, Integer.valueOf(args[0]), StringUtils.equals(args[1], "sameKey"));
         }
 
         // Readプラグインを利用したイベント投入
