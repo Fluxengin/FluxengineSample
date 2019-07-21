@@ -120,8 +120,18 @@ readBigQuery bq:
 event readBigQueryイベント:
     端末ID: string
 
-effect DB書き込み送信 as DB書き込み送信2:
-    ユーザーID: readBigQueryイベント.端末ID
-    日時: now()
-    メッセージ: "エフェクタ実行"
-    watch(エフェクタ送信イベント):
+#effect DB書き込み送信 as DB書き込み送信2:
+#    ユーザーID: readBigQueryイベント.端末ID
+#    日時: now()
+#    メッセージ: "エフェクタ実行"
+#    watch(エフェクタ送信イベント):
+
+number 累積データ: PersistermysqlInsert.使用量 + 1
+persister PersistermysqlInsert:
+    使用量: number
+    persist(mysqlInsertイベント.端末ID):
+        lifetime: today()
+
+persist PersistermysqlInsert:
+    使用量: 累積データ
+    watch(mysqlInsertイベント):
