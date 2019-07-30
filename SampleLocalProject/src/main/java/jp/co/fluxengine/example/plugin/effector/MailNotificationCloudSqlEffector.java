@@ -13,12 +13,11 @@ import jp.co.fluxengine.example.CloudSqlPool;
 import jp.co.fluxengine.stateengine.annotation.DslName;
 import jp.co.fluxengine.stateengine.annotation.Effector;
 import jp.co.fluxengine.stateengine.annotation.Post;
-import jp.co.fluxengine.stateengine.starter.simple.SimpleStarter;
 
 @Effector("rule/性能検証ルール#DB書き込み送信")
 public class MailNotificationCloudSqlEffector {
 
-    private static final Logger log =  LoggerFactory.getLogger(SimpleStarter.class);
+    private static final Logger log =  LoggerFactory.getLogger(MailNotificationCloudSqlEffector.class);
 
     @DslName("ユーザーID")
     private String userId;
