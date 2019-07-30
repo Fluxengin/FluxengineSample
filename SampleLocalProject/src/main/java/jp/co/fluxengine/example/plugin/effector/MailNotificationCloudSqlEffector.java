@@ -6,18 +6,19 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import jp.co.fluxengine.example.CloudSqlPool;
 import jp.co.fluxengine.stateengine.annotation.DslName;
 import jp.co.fluxengine.stateengine.annotation.Effector;
 import jp.co.fluxengine.stateengine.annotation.Post;
+import jp.co.fluxengine.stateengine.starter.simple.SimpleStarter;
 
 @Effector("rule/性能検証ルール#DB書き込み送信")
 public class MailNotificationCloudSqlEffector {
 
-    private static final Logger log = LogManager.getLogger(MailNotificationCloudSqlEffector.class);
+    private static final Logger log =  LoggerFactory.getLogger(SimpleStarter.class);
 
     @DslName("ユーザーID")
     private String userId;

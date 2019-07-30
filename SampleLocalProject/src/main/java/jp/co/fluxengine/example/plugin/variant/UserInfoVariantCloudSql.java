@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import jp.co.fluxengine.example.CloudSqlPool;
 import jp.co.fluxengine.stateengine.annotation.DslName;
@@ -17,7 +17,7 @@ import jp.co.fluxengine.stateengine.annotation.Variant;
 @Variant("rule/性能検証ルール#クラウドSQL情報バリアント")
 public class UserInfoVariantCloudSql {
 
-	private static final Logger log = LogManager.getLogger(UserInfoVariantCloudSql.class);
+	private static final Logger log = LoggerFactory.getLogger(UserInfoVariantCloudSql.class);
 
 	@DslName("get")
 	public Map<String, Object> get(String id) {

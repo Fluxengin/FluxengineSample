@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import jp.co.fluxengine.stateengine.annotation.DslName;
 import jp.co.fluxengine.stateengine.annotation.Function;
@@ -13,7 +13,7 @@ import jp.co.fluxengine.stateengine.annotation.Function;
 @Function("ユーティリティ")
 public class Utility {
 
-	private static final Logger log = LogManager.getLogger(Utility.class);
+	private static final Logger log = LoggerFactory.getLogger(Utility.class);
 
 	//DSLから呼び出すにはstaticメソッドである必要がある
 	@DslName("文字列連結")
