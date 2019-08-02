@@ -49,11 +49,12 @@ public class RedisEffector {
                 Map<String, Object> ret = com.google.common.collect.Maps.newHashMap();
                 for (byte[] byts : values) {
 
-                    KryoSerializer ser = new KryoSerializer(HashMap.class);
-                    Map<String, Object> valueMap = ser.deserialize(byts);
+
                     String key = new String(keys[index]);
 
                     if (!key.endsWith("counter")) {
+                        KryoSerializer ser = new KryoSerializer(HashMap.class);
+                        Map<String, Object> valueMap = ser.deserialize(byts);
                         ret.put(key, valueMap);
                     }
                     index++;
@@ -75,7 +76,7 @@ public class RedisEffector {
                         if (maxupdatetime == null) {
                             maxupdatetime = lupdatetime;
                         } else {
-                            if (maxupdatetime.compareTo(minupdatetime) > 0) {
+                            if (lupdatetime.compareTo(maxupdatetime) > 0) {
                                 maxupdatetime = lupdatetime;
                             }
                         }
@@ -107,6 +108,6 @@ public class RedisEffector {
         JedisPoolConfig poolConfig = new JedisPoolConfig();
         poolConfig.setMaxWaitMillis(1000 * 60 * 10);
 
-        return new JedisPool(poolConfig, host, port, 1000 * 60);
+        return new JedisPool(poolConfig, host, port, 1000 * 60 * 10);
     }
 }
