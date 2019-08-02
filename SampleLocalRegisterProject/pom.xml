@@ -38,32 +38,24 @@
 		<dependency>
 			<groupId>jp.co.fluxengine</groupId>
 			<artifactId>fluxengine-dsl-register</artifactId>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/fluxengine-dsl-register-${fluxengine.version}.jar</systemPath>
 			<version>${fluxengine.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>jp.co.fluxengine</groupId>
 			<artifactId>fluxengine-parser</artifactId>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/fluxengine-parser-${fluxengine.version}.jar</systemPath>
 			<version>${fluxengine.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>jp.co.fluxengine</groupId>
 			<artifactId>fluxengine-core</artifactId>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/fluxengine-core-${fluxengine.version}.jar</systemPath>
 			<version>${fluxengine.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>jp.co.fluxengine</groupId>
 			<artifactId>fluxengine-persist-manager</artifactId>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/fluxengine-persist-manager-${fluxengine.version}.jar</systemPath>
 			<version>${fluxengine.version}</version>
 		</dependency>
 
@@ -71,8 +63,6 @@
 		<dependency>
 			<groupId>jp.co.fluxengine</groupId>
 			<artifactId>fluxengine-dsl-loader</artifactId>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/fluxengine-dsl-loader-${fluxengine.version}.jar</systemPath>
 			<version>${fluxengine.version}</version>
 		</dependency>
 
@@ -80,64 +70,7 @@
 			<groupId>jp.co.fluxengine</groupId>
 			<artifactId>fluxengine-local-sample</artifactId>
 			<version>${fluxengine.version}</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/fluxengine-local-sample-${fluxengine.version}.jar</systemPath>
 		</dependency>
 
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.6.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>2.6.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>23.0</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-collections</groupId>
-			<artifactId>commons-collections</artifactId>
-			<version>3.2.1</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>2.6</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.9.5</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.datatype</groupId>
-			<artifactId>jackson-datatype-jsr310</artifactId>
-			<version>2.9.5</version>
-		</dependency>
-			<dependency>
-			<groupId>com.google.cloud</groupId>
-			<artifactId>google-cloud-datastore</artifactId>
-			<version>1.56.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.esotericsoftware</groupId>
-			<artifactId>kryo</artifactId>
-			<version>4.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>de.javakaffee</groupId>
-			<artifactId>kryo-serializers</artifactId>
-			<version>0.42</version>
-		</dependency>
 	</dependencies>
 </project>
