@@ -36,7 +36,7 @@ public class RedisEffector {
 //
 //        JedisPool pool = (JedisPool) f.get(clz);
 
-        JedisPool pool = initConnectionPool();
+//        JedisPool pool = initConnectionPool();
         try (Jedis jedis = pool.getResource()) {
 
             Set<byte[]> keySet = jedis.keys("*".getBytes());
