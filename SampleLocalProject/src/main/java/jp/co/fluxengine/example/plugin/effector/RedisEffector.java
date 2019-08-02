@@ -40,49 +40,51 @@ public class RedisEffector {
         try (Jedis jedis = pool.getResource()) {
 
             Set<byte[]> keySet = jedis.keys("*".getBytes());
-            byte[][] keys = keySet.toArray(new byte[keySet.size()][]);
-            byte[][] values = jedis.mget(keys).toArray(new byte[keySet.size()][]);
 
-            int index = 0;
-            Map<String, Object> ret = com.google.common.collect.Maps.newHashMap();
-            for (byte[] byts : values) {
+            if (keySet != null && keySet.size() > 0) {
+                byte[][] keys = keySet.toArray(new byte[keySet.size()][]);
+                byte[][] values = jedis.mget(keys).toArray(new byte[keySet.size()][]);
 
-                KryoSerializer ser = new KryoSerializer(HashMap.class);
-                Map<String, Object> valueMap = ser.deserialize(byts);
-                String key = new String(keys[index]);
+                int index = 0;
+                Map<String, Object> ret = com.google.common.collect.Maps.newHashMap();
+                for (byte[] byts : values) {
 
-                if (!key.endsWith("counter")) {
-                    ret.put(key, valueMap);
+                    KryoSerializer ser = new KryoSerializer(HashMap.class);
+                    Map<String, Object> valueMap = ser.deserialize(byts);
+                    String key = new String(keys[index]);
+
+                    if (!key.endsWith("counter")) {
+                        ret.put(key, valueMap);
+                    }
+                    index++;
                 }
-                index++;
-            }
 
-            LocalDateTime minupdatetime = null;
-            LocalDateTime maxupdatetime = null;
-            for (Entry<String, Object> entry : ret.entrySet()) {
-                if (entry.getValue() instanceof HashMap) {
-                    Map map = (Map) entry.getValue();
-                    LocalDateTime lupdatetime = (LocalDateTime) map.get("updateTime");
-                    if (minupdatetime == null) {
-                        minupdatetime = lupdatetime;
-                    } else {
-                        if (lupdatetime.compareTo(minupdatetime) < 0) {
+                LocalDateTime minupdatetime = null;
+                LocalDateTime maxupdatetime = null;
+                for (Entry<String, Object> entry : ret.entrySet()) {
+                    if (entry.getValue() instanceof HashMap) {
+                        Map map = (Map) entry.getValue();
+                        LocalDateTime lupdatetime = (LocalDateTime) map.get("updateTime");
+                        if (minupdatetime == null) {
                             minupdatetime = lupdatetime;
+                        } else {
+                            if (lupdatetime.compareTo(minupdatetime) < 0) {
+                                minupdatetime = lupdatetime;
+                            }
                         }
-                    }
-                    if (maxupdatetime == null) {
-                        maxupdatetime = lupdatetime;
-                    } else {
-                        if (maxupdatetime.compareTo(minupdatetime) > 0) {
+                        if (maxupdatetime == null) {
                             maxupdatetime = lupdatetime;
+                        } else {
+                            if (maxupdatetime.compareTo(minupdatetime) > 0) {
+                                maxupdatetime = lupdatetime;
+                            }
                         }
+
                     }
-
                 }
+
+                log.warn("最小時間：{},最大時間：{}", minupdatetime, maxupdatetime);
             }
-
-            log.warn("最小時間：{},最大時間：{}", minupdatetime, maxupdatetime);
-
         }
     }
 
@@ -105,6 +107,6 @@ public class RedisEffector {
         JedisPoolConfig poolConfig = new JedisPoolConfig();
         poolConfig.setMaxWaitMillis(1000 * 60 * 10);
 
-        return new JedisPool(poolConfig, host, port);
+        return new JedisPool(poolConfig, host, port, 1000 * 60);
     }
 }
