@@ -1,13 +1,10 @@
 package jp.co.fluxengine.example.plugin.effector;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UncheckedIOException;
+import java.lang.reflect.Field;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Properties;
 import java.util.Set;
 
 import org.slf4j.Logger;
@@ -15,10 +12,10 @@ import org.slf4j.LoggerFactory;
 
 import jp.co.fluxengine.stateengine.annotation.Effector;
 import jp.co.fluxengine.stateengine.annotation.Post;
+import jp.co.fluxengine.stateengine.util.ReflectUtils;
 import jp.co.fluxengine.stateengine.util.Serializer.KryoSerializer;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
 
 @Effector("rule/性能検証ルール#redisデータ出力")
 public class RedisEffector {
@@ -26,8 +23,15 @@ public class RedisEffector {
     private static final Logger log = LoggerFactory.getLogger(RedisEffector.class);
 
     @Post
-    public void post() {
-        JedisPool pool = initConnectionPool();
+    public void post() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+
+       Class clz =  ReflectUtils.getClass("jp.co.fluxengine.stateengine.persist.RedisDao");
+
+       Field f = clz.getDeclaredField("jedisPool");
+
+       f.setAccessible(true);
+
+        JedisPool pool = (JedisPool) f.get(clz);
         try (Jedis jedis = pool.getResource()) {
 
             Set<byte[]> keySet = jedis.keys("*".getBytes());
@@ -77,24 +81,24 @@ public class RedisEffector {
         }
     }
 
-    private JedisPool initConnectionPool() {
-        Properties props = new Properties();
-
-        try (InputStream in = RedisEffector.class.getResourceAsStream("/fluxengine.properties")) {
-            props.load(in);
-        } catch (IOException e) {
-            log.error("error in initConnectionPool", e);
-            throw new UncheckedIOException(e);
-        }
-
-        String host = props.getProperty("persister.memorystore.host");
-        int port = Integer.parseInt(props.getProperty("persister.memorystore.port"));
-
-        log.debug("Memorystore host = {}, port = {}", host, port);
-
-        JedisPoolConfig poolConfig = new JedisPoolConfig();
-        poolConfig.setMaxWaitMillis(10000);
-
-        return new JedisPool(poolConfig, host, port, 10000);
-    }
+//    private JedisPool initConnectionPool() {
+//        Properties props = new Properties();
+//
+//        try (InputStream in = RedisEffector.class.getResourceAsStream("/fluxengine.properties")) {
+//            props.load(in);
+//        } catch (IOException e) {
+//            log.error("error in initConnectionPool", e);
+//            throw new UncheckedIOException(e);
+//        }
+//
+//        String host = props.getProperty("persister.memorystore.host");
+//        int port = Integer.parseInt(props.getProperty("persister.memorystore.port"));
+//
+//        log.debug("Memorystore host = {}, port = {}", host, port);
+//
+//        JedisPoolConfig poolConfig = new JedisPoolConfig();
+//        poolConfig.setMaxWaitMillis(10000);
+//
+//        return new JedisPool(poolConfig, host, port, 10000);
+//    }
 }
