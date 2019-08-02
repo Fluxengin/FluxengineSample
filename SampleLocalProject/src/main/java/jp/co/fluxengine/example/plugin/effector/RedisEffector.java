@@ -20,7 +20,7 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
-@Effector("effector/ユーザー通知#メール送信,rule/性能検証ルール#ダミー送信")
+@Effector("rule/性能検証ルール#redisデータ出力")
 public class RedisEffector {
 
     private static final Logger log = LoggerFactory.getLogger(RedisEffector.class);
@@ -40,8 +40,11 @@ public class RedisEffector {
 
                 KryoSerializer ser = new KryoSerializer(HashMap.class);
                 Map<String, Object> valueMap = ser.deserialize(byts);
+                String key = new String(keys[index]);
 
-                ret.put(new String(keys[index]), valueMap);
+                if (!key.endsWith("counter")) {
+                    ret.put(key, valueMap);
+                }
                 index++;
             }
 
