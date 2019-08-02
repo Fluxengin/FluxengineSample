@@ -103,8 +103,8 @@ public class RedisEffector {
         log.debug("Memorystore host = {}, port = {}", host, port);
 
         JedisPoolConfig poolConfig = new JedisPoolConfig();
-        poolConfig.setMaxWaitMillis(10000);
+        poolConfig.setMaxWaitMillis(1000 * 60 * 10);
 
-        return new JedisPool(poolConfig, host, port, 10000);
+        return new JedisPool(poolConfig, host, port);
     }
 }
