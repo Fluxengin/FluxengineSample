@@ -1,0 +1,1 @@
+SELECT name , content  FROM entries where name = ?
