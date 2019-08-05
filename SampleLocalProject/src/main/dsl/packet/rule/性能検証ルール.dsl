@@ -123,7 +123,7 @@ effect redisデータ出力:
     watch(redisイベント):
 
 
-number n:
+number m:
     sql: mysql/read1.sql
     params:
         corpus<string>: e.corpus
