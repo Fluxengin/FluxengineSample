@@ -123,43 +123,41 @@ effect redisデータ出力:
     watch(redisイベント):
 
 
-number m:
+string m:
     sql: mysql/read1.sql
     params:
-        corpus<string>: e.corpus
+        corpus<varchar>: e.corpus
     cache: today()
 
-number n:
+string n:
     イベントのみ.端末ID == "a":
         sql: mysql/read1.sql
         params:
-            corpus<string>: e.corpus
+            corpus<varchar>: e.corpus
     else:
         sql: mysql/read1.sql
         params:
-            corpus<string>: e.corpus
+            corpus<varchar>: e.corpus
     cache: today()
 
 
 struct xx:
+    a: string
+    b: string
     イベントのみ.端末ID == "a":
-        a: date
-        b: number
         sql: mysql/read1.sql
         params:
-            corpus<string>: イベントのみ.端末ID
+            corpus<varchar>: イベントのみ.端末ID
     else:
-        a: date
-        b: number
         sql: mysql/read2.sql
         params:
-            corpus<string>: イベントのみ.端末ID
+            corpus<varchar>: イベントのみ.端末ID
     cache: today()
 
 struct yy:
-    a: date
-    b: number
+    a: string
+    b: string
     sql: mysql/read2.sql
     params:
-        corpus<string>: イベントのみ.端末ID
+        corpus<varchar>: イベントのみ.端末ID
     cache: today()
