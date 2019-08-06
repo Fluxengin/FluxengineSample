@@ -126,18 +126,18 @@ effect redisデータ出力:
 string m:
     sql: mysql/read1.sql
     params:
-        corpus<varchar>: e.corpus
+        corpus<varchar>: イベントのみ.端末ID
     cache: today()
 
 string n:
     イベントのみ.端末ID == "a":
         sql: mysql/read1.sql
         params:
-            corpus<varchar>: e.corpus
+            corpus<varchar>: イベントのみ.端末ID
     else:
         sql: mysql/read1.sql
         params:
-            corpus<varchar>: e.corpus
+            corpus<varchar>: イベントのみ.端末ID
     cache: today()
 
 
