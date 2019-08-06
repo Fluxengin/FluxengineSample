@@ -1,1 +1,1 @@
-SELECT name  FROM entries where name = ?
+SELECT name  FROM master1 where name = ?

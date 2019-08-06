@@ -142,8 +142,10 @@ string n:
 
 
 struct xx:
-    a: string
-    b: string
+    name: string
+    age: string
+    birthday: date
+    createtime: datetime
     イベントのみ.端末ID == "a":
         sql: mysql/read2.sql
         params:
@@ -155,8 +157,10 @@ struct xx:
     cache: today()
 
 struct yy:
-    a: string
-    b: string
+    name: string
+    age: string
+    birthday: date
+    createtime: datetime
     sql: mysql/read2.sql
     params:
         corpus<varchar>: イベントのみ.端末ID

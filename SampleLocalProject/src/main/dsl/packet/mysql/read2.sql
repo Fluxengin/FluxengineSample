@@ -1,1 +1,1 @@
-SELECT name , content  FROM entries where name = ?
+SELECT name , age ,birthday, createtime  FROM master1 where name = ?
