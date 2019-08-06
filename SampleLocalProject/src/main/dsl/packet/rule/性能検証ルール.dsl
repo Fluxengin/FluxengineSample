@@ -145,7 +145,7 @@ struct xx:
     a: string
     b: string
     イベントのみ.端末ID == "a":
-        sql: mysql/read1.sql
+        sql: mysql/read2.sql
         params:
             corpus<varchar>: イベントのみ.端末ID
     else:
@@ -161,3 +161,7 @@ struct yy:
     params:
         corpus<varchar>: イベントのみ.端末ID
     cache: today()
+
+rule mysqlrule:
+    m == イベントのみ.端末ID:
+    watch(イベントのみ):
