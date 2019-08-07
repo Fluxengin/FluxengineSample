@@ -167,5 +167,5 @@ struct yy:
     cache: today()
 
 rule mysqlrule:
-    m == イベントのみ.端末ID:
+    xx.name == イベントのみ.端末ID:
     watch(イベントのみ):
