@@ -3,6 +3,7 @@ package jp.co.fluxengine.example.plugin.effector;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UncheckedIOException;
+import java.io.UnsupportedEncodingException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +40,12 @@ public class RedisEffector {
 //        JedisPool pool = initConnectionPool();
         try (Jedis jedis = pool.getResource()) {
 
-            Set<byte[]> keySet = jedis.keys("*".getBytes());
+            Set<byte[]> keySet = null;
+            try {
+                keySet = jedis.keys("*".getBytes("UTF-8"));
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
+            }
 
             if (keySet != null && keySet.size() > 0) {
                 byte[][] keys = keySet.toArray(new byte[keySet.size()][]);
