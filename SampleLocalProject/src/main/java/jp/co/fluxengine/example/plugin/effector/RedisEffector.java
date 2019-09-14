@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 
 import jp.co.fluxengine.stateengine.annotation.Effector;
 import jp.co.fluxengine.stateengine.annotation.Post;
-import jp.co.fluxengine.stateengine.util.Serializer.KryoSerializer;
+import jp.co.fluxengine.stateengine.util.Serializer.KryoUtils;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -59,8 +59,7 @@ public class RedisEffector {
                     String key = new String(keys[index]);
 
                     if (!key.endsWith("counter")) {
-                        KryoSerializer ser = new KryoSerializer(HashMap.class);
-                        Map<String, Object> valueMap = ser.deserialize(byts);
+                        Map<String, Object> valueMap = KryoUtils.deserialize(byts);
                         ret.put(key, valueMap);
                     }
                     index++;
