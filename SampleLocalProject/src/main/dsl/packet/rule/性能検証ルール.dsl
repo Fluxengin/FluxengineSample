@@ -106,7 +106,7 @@ effectMySQL wonlyVariant:
       check_item_id<bigint>: クラウドSQL情報バリアント.パケット上限
       check_ctgr_item_detail_id<bigint>: 2
       checked_date_time<timestamp>: now()
-      alert_message<varchar>: onlyMysqlInsertイベント.端末ID
+      alert_message<varchar>: onlyMysqlInsertWithVariantイベント.端末ID
       real_num_rate<bigint>: 3
   watch(onlyMysqlInsertWithVariantイベント):
 
