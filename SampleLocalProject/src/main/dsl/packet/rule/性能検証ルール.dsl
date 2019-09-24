@@ -100,7 +100,7 @@ effectMySQL wonly:
 event onlyMysqlInsertWithVariantイベント:
     端末ID: string
 
-effectMySQL wonly:
+effectMySQL wonlyVariant:
   sql: mysql/hoge.sql
   params:
       check_item_id<bigint>: クラウドSQL情報バリアント.パケット上限
