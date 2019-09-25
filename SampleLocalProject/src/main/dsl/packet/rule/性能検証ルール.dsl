@@ -71,16 +71,16 @@ effect DB書き込み送信:
 
 event mysqlInsertイベント:
     端末ID: string
-#effectMySQL w:
-#  sql: mysql/hoge.sql
-#  params:
-#      check_item_id<bigint>: クラウドSQL情報バリアント.パケット上限
-##      check_item_id<bigint>: 1
-#      check_ctgr_item_detail_id<bigint>: 2
-#      checked_date_time<timestamp>: now()
-#      alert_message<varchar>: mysqlInsertイベント.端末ID
-#      real_num_rate<bigint>: 3
-#  watch(mysqlInsertイベント):
+effectMySQL w:
+  sql: mysql/hoge.sql
+  params:
+      check_item_id<bigint>: クラウドSQL情報バリアント.パケット上限
+#      check_item_id<bigint>: 1
+      check_ctgr_item_detail_id<bigint>: 2
+      checked_date_time<timestamp>: now()
+      alert_message<varchar>: mysqlInsertイベント.端末ID
+      real_num_rate<bigint>: 3
+  watch(mysqlInsertイベント):
 
 
 event onlyMysqlInsertイベント:
