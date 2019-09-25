@@ -204,7 +204,7 @@ persister Persister保存_rw:
         lifetime: today()
 
 persist Persister保存_rw:
-    使用量: 100
+    使用量: 累積データ2
     watch(Persister_rw_保存イベント):
 
 event Persister_rw_保存イベント:
