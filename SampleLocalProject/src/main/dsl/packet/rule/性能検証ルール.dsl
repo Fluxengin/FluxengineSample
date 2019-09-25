@@ -196,3 +196,18 @@ struct yy:
 rule mysqlrule:
     xx.name == イベントのみ.端末ID:
     watch(イベントのみ):
+
+
+persister Persister保存_rw:
+    使用量: number
+    persist(Persister_rw_保存イベント.端末ID):
+        lifetime: today()
+
+persist Persister保存_rw:
+    使用量: 100
+    watch(Persister_rw_保存イベント):
+
+event Persister_rw_保存イベント:
+    端末ID: string
+
+number 累積データ2: PersistermysqlInsert.使用量 + 1
