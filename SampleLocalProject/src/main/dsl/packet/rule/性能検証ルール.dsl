@@ -210,4 +210,4 @@ persist Persister保存_rw:
 event Persister_rw_保存イベント:
     端末ID: string
 
-number 累積データ2: Persister_rw_保存イベント.使用量 + 1
+number 累積データ2: Persister保存_rw.使用量 + 1
