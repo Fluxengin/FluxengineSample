@@ -86,6 +86,12 @@
 			<groupId>com.google.cloud.sql</groupId>
 			<artifactId>jdbc-socket-factory-core</artifactId>
 			<version>1.4.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.google.guava</groupId>
+					<artifactId>guava</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>com.zaxxer</groupId>
@@ -97,12 +103,26 @@
             <groupId>jp.co.fluxengine</groupId>
             <artifactId>fluxengine-core</artifactId>
             <version>${fluxengine.version}</version>
-        </dependency>
+            <exclusions>
+            	<exclusion>
+            		<groupId>com.google.guava</groupId>
+            		<artifactId>guava</artifactId>
+            	</exclusion>
+            </exclusions>
+		</dependency>
 
         <dependency>
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
 			<version>3.1.0</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>28.2-jre</version>
 		</dependency>
 	</dependencies>
 </project>
