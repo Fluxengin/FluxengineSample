@@ -35,11 +35,11 @@ struct xx:
     パケットイベント.端末ID == "tid112233":
         sql: mysql/read2.sql
         params:
-            corpus<varchar>: イベントのみ.端末ID
+            corpus<varchar>: パケットイベント.端末ID
     else:
         sql: mysql/read2.sql
         params:
-            corpus<varchar>: イベントのみ.端末ID
+            corpus<varchar>: パケットイベント.端末ID
     cache: today()
 
 rule mysqlrule:
